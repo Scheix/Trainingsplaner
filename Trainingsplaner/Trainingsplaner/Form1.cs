@@ -27,6 +27,7 @@ namespace Trainingsplaner
             string sql = "create table trainingsplaner (kategorie varchar(20), unterkategorie varchar(20), beschreibung varchar(200), name varchar(20), dauer int, bild blob)";
             SQLiteCommand command = new SQLiteCommand(sql, trainingsDB);
             command.ExecuteNonQuery();
+            string insert = "insert into trainingsplaner (kategorie, unterkategorie, beschreibung, name, dauer, bild) values ('Aufwaermen','Einlaufen','Verschiedene Übungen in den Ecken',15, null)";
             //Start
         }
     }
