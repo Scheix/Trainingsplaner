@@ -28,8 +28,7 @@ namespace Trainingsplaner
             SQLiteCommand command = new SQLiteCommand(sql, trainingsDB);
             command.ExecuteNonQuery();
             string insert = "insert into trainingsplaner (kategorie, unterkategorie, beschreibung, name, dauer, bild) values ('Aufwaermen','Einlaufen','Verschiedene Übungen in den Ecken',15, null)";
-            //Hallo Zacki sdf
-            //Start
+
         }
     }
 }
