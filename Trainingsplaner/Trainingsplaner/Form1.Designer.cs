@@ -28,22 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pctboxTrainingErstellen = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erstellenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pctboxTrainings = new System.Windows.Forms.PictureBox();
+            this.pctboxNeueUebung = new System.Windows.Forms.PictureBox();
+            this.pctboxUebersicht = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainingErstellen)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxNeueUebung)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxUebersicht)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pctboxTrainingErstellen
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(122, 108);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pctboxTrainingErstellen.ImageLocation = "";
+            this.pctboxTrainingErstellen.Location = new System.Drawing.Point(6, 37);
+            this.pctboxTrainingErstellen.Name = "pctboxTrainingErstellen";
+            this.pctboxTrainingErstellen.Size = new System.Drawing.Size(219, 196);
+            this.pctboxTrainingErstellen.TabIndex = 0;
+            this.pctboxTrainingErstellen.TabStop = false;
+            this.pctboxTrainingErstellen.Click += new System.EventHandler(this.pctboxTrainingErstellen_Click);
             // 
             // menuStrip1
             // 
@@ -76,22 +84,55 @@
             this.erstellenToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.erstellenToolStripMenuItem.Text = "Erstellen";
             // 
+            // pctboxTrainings
+            // 
+            this.pctboxTrainings.Location = new System.Drawing.Point(231, 37);
+            this.pctboxTrainings.Name = "pctboxTrainings";
+            this.pctboxTrainings.Size = new System.Drawing.Size(219, 196);
+            this.pctboxTrainings.TabIndex = 2;
+            this.pctboxTrainings.TabStop = false;
+            this.pctboxTrainings.Click += new System.EventHandler(this.pctboxTrainings_Click);
+            // 
+            // pctboxNeueUebung
+            // 
+            this.pctboxNeueUebung.Location = new System.Drawing.Point(6, 239);
+            this.pctboxNeueUebung.Name = "pctboxNeueUebung";
+            this.pctboxNeueUebung.Size = new System.Drawing.Size(219, 196);
+            this.pctboxNeueUebung.TabIndex = 3;
+            this.pctboxNeueUebung.TabStop = false;
+            this.pctboxNeueUebung.Click += new System.EventHandler(this.pctboxNeueUebung_Click);
+            // 
+            // pctboxUebersicht
+            // 
+            this.pctboxUebersicht.Location = new System.Drawing.Point(231, 239);
+            this.pctboxUebersicht.Name = "pctboxUebersicht";
+            this.pctboxUebersicht.Size = new System.Drawing.Size(219, 196);
+            this.pctboxUebersicht.TabIndex = 4;
+            this.pctboxUebersicht.TabStop = false;
+            this.pctboxUebersicht.Click += new System.EventHandler(this.pctboxUebersicht_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(459, 407);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(459, 438);
+            this.Controls.Add(this.pctboxUebersicht);
+            this.Controls.Add(this.pctboxNeueUebung);
+            this.Controls.Add(this.pctboxTrainings);
+            this.Controls.Add(this.pctboxTrainingErstellen);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Trainingsplaner";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainingErstellen)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxNeueUebung)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxUebersicht)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,11 +140,14 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pctboxTrainingErstellen;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dateiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bearbeitenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem erstellenToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pctboxTrainings;
+        private System.Windows.Forms.PictureBox pctboxNeueUebung;
+        private System.Windows.Forms.PictureBox pctboxUebersicht;
     }
 }
 

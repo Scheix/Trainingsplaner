@@ -75,10 +75,46 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNeueUebung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNeueUebung.Designer.cs">
+      <DependentUpon>FrmNeueUebung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTrainingErstellen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTrainingErstellen.Designer.cs">
+      <DependentUpon>FrmTrainingErstellen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTrainingshistorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTrainingshistorie.Designer.cs">
+      <DependentUpon>FrmTrainingshistorie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUebersicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUebersicht.Designer.cs">
+      <DependentUpon>FrmUebersicht.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNeueUebung.resx">
+      <DependentUpon>FrmNeueUebung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTrainingErstellen.resx">
+      <DependentUpon>FrmTrainingErstellen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTrainingshistorie.resx">
+      <DependentUpon>FrmTrainingshistorie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUebersicht.resx">
+      <DependentUpon>FrmUebersicht.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -88,6 +124,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -106,6 +143,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Pictures\pirelli.png" />
+    <Content Include="Pictures\volleyball.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.102.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.102.0\build\net451\System.Data.SQLite.Core.targets')" />

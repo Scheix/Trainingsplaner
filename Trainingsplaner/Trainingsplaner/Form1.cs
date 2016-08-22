@@ -23,7 +23,7 @@ namespace Trainingsplaner
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Change the directory of simon und michael to the same folder, because of the import of the pictures
+            //Change the directory of the project of simon und michael to the same folder, because of the import of the pictures
             initializeDatabase();
             string select = "select kategorie, bild from trainingsplaner";
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
@@ -31,7 +31,7 @@ namespace Trainingsplaner
             while (reader.Read())
             {
                 this.Text = "" + reader["kategorie"];
-                pictureBox1.Image = Image.FromFile(""+reader["bild"]);
+                pctboxTrainingErstellen.Image = Image.FromFile(""+reader["bild"]);
             }
             trainingsDB.Close();
         }
@@ -45,6 +45,30 @@ namespace Trainingsplaner
             string insert = "insert into trainingsplaner (kategorie, unterkategorie, beschreibung, name, dauer, bild) values ('Aufwaermen','Einlaufen','Verschiedene Übungen in den Ecken','Workout1',15, 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
             command = new SQLiteCommand(insert, trainingsDB);
             command.ExecuteNonQuery();
+        }
+
+        private void pctboxTrainingErstellen_Click(object sender, EventArgs e)
+        {
+            FrmTrainingErstellen frm = new FrmTrainingErstellen();
+            frm.Show();
+        }
+
+        private void pctboxTrainings_Click(object sender, EventArgs e)
+        {
+            FrmTrainingshistorie frm = new FrmTrainingshistorie();
+            frm.Show();
+        }
+
+        private void pctboxNeueUebung_Click(object sender, EventArgs e)
+        {
+            FrmNeueUebung frm = new FrmNeueUebung();
+            frm.Show();
+        }
+
+        private void pctboxUebersicht_Click(object sender, EventArgs e)
+        {
+            FrmUebersicht frm = new FrmUebersicht();
+            frm.Show();
         }
     }
 }
