@@ -58,6 +58,7 @@
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.102.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -99,6 +100,12 @@
     <Compile Include="FrmUebersicht.Designer.cs">
       <DependentUpon>FrmUebersicht.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUebungsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUebungsDetails.Designer.cs">
+      <DependentUpon>FrmUebungsDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -115,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUebersicht.resx">
       <DependentUpon>FrmUebersicht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUebungsDetails.resx">
+      <DependentUpon>FrmUebungsDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

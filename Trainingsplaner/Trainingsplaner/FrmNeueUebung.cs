@@ -16,5 +16,10 @@ namespace Trainingsplaner
         {
             InitializeComponent();
         }
+
+        private void FrmNeueUebung_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

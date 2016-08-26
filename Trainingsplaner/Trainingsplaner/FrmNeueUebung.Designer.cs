@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "FrmNeueUebung";
             this.Text = "Neue Uebung";
+            this.Load += new System.EventHandler(this.FrmNeueUebung_Load);
             this.ResumeLayout(false);
 
         }

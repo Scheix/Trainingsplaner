@@ -21,13 +21,62 @@ namespace Trainingsplaner
 
         private void FrmUebersicht_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo htInfo = listView1.HitTest(e.X, e.Y);
+
+            if (htInfo != null)
+            {
+                if (htInfo.Item != null)
+                {
+                    ListViewItem lvi = htInfo.Item;
+                    string item = lvi.Text;
+                    FrmUebungsDetails frm = new FrmUebungsDetails();
+                    frm.UebungsName = item;
+                    frm.Show();
+                }
+            }
+        }
+
+        private void rbtnAusdauer_CheckedChanged(object sender, EventArgs e)
+        {
+            radiobuttonCheckedChanged();
+        }
+
+        private void rbtnHIIT_CheckedChanged(object sender, EventArgs e)
+        {
+            radiobuttonCheckedChanged();
+        }
+
+        private void rbtnDehnen_CheckedChanged(object sender, EventArgs e)
+        {
+            radiobuttonCheckedChanged();
+        }
+        private void radiobuttonCheckedChanged ()
+        {
+            listView1.Items.Clear();
+            string select = "";
+            if (rbtnAusdauer.Checked)
+            {
+                select = "select name from uebungen where unterkategorie = 'Laufen'";
+            }
+            else if (rbtnHIIT.Checked)
+            {
+                select = "select name from uebungen where unterkategorie = 'HIIT'";
+            }
+            else
+            {
+                select = "select name from uebungen where unterkategorie = 'Dehnen'";
+            }
             trainingsDB.Open();
-            string select = "select name from uebungen";
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                listView1.Items.Add(""+reader["name"]);
+                listView1.Items.Add("" + reader["name"]);
             }
             trainingsDB.Close();
         }

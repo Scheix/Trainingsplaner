@@ -11,24 +11,25 @@ using System.Windows.Forms;
 
 namespace Trainingsplaner
 {
-    public partial class FrmTrainingshistorie : Form
+    public partial class FrmUebungsDetails : Form
     {
         SQLiteConnection trainingsDB = new SQLiteConnection("Data Source=Trainingsplaner.sqlite;Version=3;");
-        public FrmTrainingshistorie()
+        public FrmUebungsDetails()
         {
             InitializeComponent();
         }
-
-        private void FrmTrainingshistorie_Load(object sender, EventArgs e)
+        public string UebungsName { get; set; }
+        private void FrmUebungsDetails_Load(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            string select = "select name from trainings";
+            string select = "select * from uebungen where name = '" + this.UebungsName + "'";
             trainingsDB.Open();
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                listView1.Items.Add("" + reader["name"]);
+                lblTitel.Text = ""+reader["name"];
+                lblBeschreibung.Text = "" + reader["beschreibung"];
+                pctBoxUebung.Image = Image.FromFile("" + reader["bild"]);
             }
             trainingsDB.Close();
         }

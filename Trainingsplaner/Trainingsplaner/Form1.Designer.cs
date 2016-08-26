@@ -36,6 +36,8 @@
             this.pctboxTrainings = new System.Windows.Forms.PictureBox();
             this.pctboxNeueUebung = new System.Windows.Forms.PictureBox();
             this.pctboxUebersicht = new System.Windows.Forms.PictureBox();
+            this.lblSuche = new System.Windows.Forms.Label();
+            this.txtSuche = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainingErstellen)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainings)).BeginInit();
@@ -111,12 +113,31 @@
             this.pctboxUebersicht.TabStop = false;
             this.pctboxUebersicht.Click += new System.EventHandler(this.pctboxUebersicht_Click);
             // 
+            // lblSuche
+            // 
+            this.lblSuche.AutoSize = true;
+            this.lblSuche.Location = new System.Drawing.Point(288, 12);
+            this.lblSuche.Name = "lblSuche";
+            this.lblSuche.Size = new System.Drawing.Size(41, 13);
+            this.lblSuche.TabIndex = 5;
+            this.lblSuche.Text = "Suche:";
+            // 
+            // txtSuche
+            // 
+            this.txtSuche.Location = new System.Drawing.Point(335, 9);
+            this.txtSuche.Name = "txtSuche";
+            this.txtSuche.Size = new System.Drawing.Size(115, 20);
+            this.txtSuche.TabIndex = 6;
+            this.txtSuche.TextChanged += new System.EventHandler(this.txtSuche_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(459, 438);
+            this.Controls.Add(this.txtSuche);
+            this.Controls.Add(this.lblSuche);
             this.Controls.Add(this.pctboxUebersicht);
             this.Controls.Add(this.pctboxNeueUebung);
             this.Controls.Add(this.pctboxTrainings);
@@ -148,6 +169,8 @@
         private System.Windows.Forms.PictureBox pctboxTrainings;
         private System.Windows.Forms.PictureBox pctboxNeueUebung;
         private System.Windows.Forms.PictureBox pctboxUebersicht;
+        private System.Windows.Forms.Label lblSuche;
+        private System.Windows.Forms.TextBox txtSuche;
     }
 }
 
