@@ -28,32 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pctboxTrainingErstellen = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erstellenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pctboxTrainings = new System.Windows.Forms.PictureBox();
-            this.pctboxNeueUebung = new System.Windows.Forms.PictureBox();
-            this.pctboxUebersicht = new System.Windows.Forms.PictureBox();
             this.lblSuche = new System.Windows.Forms.Label();
             this.txtSuche = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainingErstellen)).BeginInit();
+            this.pctboxUebersicht = new System.Windows.Forms.PictureBox();
+            this.pctboxNeueUebung = new System.Windows.Forms.PictureBox();
+            this.pctboxTrainings = new System.Windows.Forms.PictureBox();
+            this.pctboxTrainingErstellen = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctboxNeueUebung)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctboxUebersicht)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxNeueUebung)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainingErstellen)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pctboxTrainingErstellen
-            // 
-            this.pctboxTrainingErstellen.ImageLocation = "";
-            this.pctboxTrainingErstellen.Location = new System.Drawing.Point(6, 37);
-            this.pctboxTrainingErstellen.Name = "pctboxTrainingErstellen";
-            this.pctboxTrainingErstellen.Size = new System.Drawing.Size(219, 196);
-            this.pctboxTrainingErstellen.TabIndex = 0;
-            this.pctboxTrainingErstellen.TabStop = false;
-            this.pctboxTrainingErstellen.Click += new System.EventHandler(this.pctboxTrainingErstellen_Click);
             // 
             // menuStrip1
             // 
@@ -64,7 +55,7 @@
             this.erstellenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(459, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(961, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -86,37 +77,10 @@
             this.erstellenToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.erstellenToolStripMenuItem.Text = "Erstellen";
             // 
-            // pctboxTrainings
-            // 
-            this.pctboxTrainings.Location = new System.Drawing.Point(231, 37);
-            this.pctboxTrainings.Name = "pctboxTrainings";
-            this.pctboxTrainings.Size = new System.Drawing.Size(219, 196);
-            this.pctboxTrainings.TabIndex = 2;
-            this.pctboxTrainings.TabStop = false;
-            this.pctboxTrainings.Click += new System.EventHandler(this.pctboxTrainings_Click);
-            // 
-            // pctboxNeueUebung
-            // 
-            this.pctboxNeueUebung.Location = new System.Drawing.Point(6, 239);
-            this.pctboxNeueUebung.Name = "pctboxNeueUebung";
-            this.pctboxNeueUebung.Size = new System.Drawing.Size(219, 196);
-            this.pctboxNeueUebung.TabIndex = 3;
-            this.pctboxNeueUebung.TabStop = false;
-            this.pctboxNeueUebung.Click += new System.EventHandler(this.pctboxNeueUebung_Click);
-            // 
-            // pctboxUebersicht
-            // 
-            this.pctboxUebersicht.Location = new System.Drawing.Point(231, 239);
-            this.pctboxUebersicht.Name = "pctboxUebersicht";
-            this.pctboxUebersicht.Size = new System.Drawing.Size(219, 196);
-            this.pctboxUebersicht.TabIndex = 4;
-            this.pctboxUebersicht.TabStop = false;
-            this.pctboxUebersicht.Click += new System.EventHandler(this.pctboxUebersicht_Click);
-            // 
             // lblSuche
             // 
             this.lblSuche.AutoSize = true;
-            this.lblSuche.Location = new System.Drawing.Point(288, 12);
+            this.lblSuche.Location = new System.Drawing.Point(790, 7);
             this.lblSuche.Name = "lblSuche";
             this.lblSuche.Size = new System.Drawing.Size(41, 13);
             this.lblSuche.TabIndex = 5;
@@ -124,18 +88,59 @@
             // 
             // txtSuche
             // 
-            this.txtSuche.Location = new System.Drawing.Point(335, 9);
+            this.txtSuche.Location = new System.Drawing.Point(837, 4);
             this.txtSuche.Name = "txtSuche";
             this.txtSuche.Size = new System.Drawing.Size(115, 20);
             this.txtSuche.TabIndex = 6;
             this.txtSuche.TextChanged += new System.EventHandler(this.txtSuche_TextChanged);
+            // 
+            // pctboxUebersicht
+            // 
+            this.pctboxUebersicht.Image = ((System.Drawing.Image)(resources.GetObject("pctboxUebersicht.Image")));
+            this.pctboxUebersicht.Location = new System.Drawing.Point(482, 308);
+            this.pctboxUebersicht.Name = "pctboxUebersicht";
+            this.pctboxUebersicht.Size = new System.Drawing.Size(470, 265);
+            this.pctboxUebersicht.TabIndex = 4;
+            this.pctboxUebersicht.TabStop = false;
+            this.pctboxUebersicht.Click += new System.EventHandler(this.pctboxUebersicht_Click);
+            // 
+            // pctboxNeueUebung
+            // 
+            this.pctboxNeueUebung.Image = ((System.Drawing.Image)(resources.GetObject("pctboxNeueUebung.Image")));
+            this.pctboxNeueUebung.Location = new System.Drawing.Point(6, 308);
+            this.pctboxNeueUebung.Name = "pctboxNeueUebung";
+            this.pctboxNeueUebung.Size = new System.Drawing.Size(470, 265);
+            this.pctboxNeueUebung.TabIndex = 3;
+            this.pctboxNeueUebung.TabStop = false;
+            this.pctboxNeueUebung.Click += new System.EventHandler(this.pctboxNeueUebung_Click);
+            // 
+            // pctboxTrainings
+            // 
+            this.pctboxTrainings.Image = ((System.Drawing.Image)(resources.GetObject("pctboxTrainings.Image")));
+            this.pctboxTrainings.Location = new System.Drawing.Point(482, 37);
+            this.pctboxTrainings.Name = "pctboxTrainings";
+            this.pctboxTrainings.Size = new System.Drawing.Size(470, 265);
+            this.pctboxTrainings.TabIndex = 2;
+            this.pctboxTrainings.TabStop = false;
+            this.pctboxTrainings.Click += new System.EventHandler(this.pctboxTrainings_Click);
+            // 
+            // pctboxTrainingErstellen
+            // 
+            this.pctboxTrainingErstellen.Image = ((System.Drawing.Image)(resources.GetObject("pctboxTrainingErstellen.Image")));
+            this.pctboxTrainingErstellen.ImageLocation = "";
+            this.pctboxTrainingErstellen.Location = new System.Drawing.Point(6, 37);
+            this.pctboxTrainingErstellen.Name = "pctboxTrainingErstellen";
+            this.pctboxTrainingErstellen.Size = new System.Drawing.Size(470, 265);
+            this.pctboxTrainingErstellen.TabIndex = 0;
+            this.pctboxTrainingErstellen.TabStop = false;
+            this.pctboxTrainingErstellen.Click += new System.EventHandler(this.pctboxTrainingErstellen_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(459, 438);
+            this.ClientSize = new System.Drawing.Size(961, 583);
             this.Controls.Add(this.txtSuche);
             this.Controls.Add(this.lblSuche);
             this.Controls.Add(this.pctboxUebersicht);
@@ -148,12 +153,12 @@
             this.Name = "Form1";
             this.Text = "Trainingsplaner";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainingErstellen)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctboxNeueUebung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctboxUebersicht)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxNeueUebung)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctboxTrainingErstellen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

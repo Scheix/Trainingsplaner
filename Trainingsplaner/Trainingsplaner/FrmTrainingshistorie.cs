@@ -32,5 +32,22 @@ namespace Trainingsplaner
             }
             trainingsDB.Close();
         }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo htInfo = listView1.HitTest(e.X, e.Y);
+
+            if (htInfo != null)
+            {
+                if (htInfo.Item != null)
+                {
+                    ListViewItem lvi = htInfo.Item;
+                    string item = lvi.Text;
+                    FrmTrainingsDetails frm = new FrmTrainingsDetails();
+                    frm.TrainingsName = item;
+                    frm.Show();
+                }
+            }
+        }
     }
 }

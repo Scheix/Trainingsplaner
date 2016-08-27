@@ -25,25 +25,20 @@ namespace Trainingsplaner
         {
             //Change the directory of the project of simon und michael to the same folder, because of the import of the pictures
             initializeDatabase();
-            string select = "select kategorie, bild from trainings";
-            SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                pctboxTrainingErstellen.Image = Image.FromFile(""+reader["bild"]);
-            }
-            trainingsDB.Close();
         }
-        private void initializeDatabase ()
+        private void initializeDatabase()
         {
-            // In Tabelle "trainings" muss auch noch eine Liste der Übungen welche in diesem Workout durchgeführt werden
+            // In Tabelle "zirkel" muss auch noch eine Liste der Übungen welche in diesem Workout durchgeführt werden
             SQLiteConnection.CreateFile("Trainingsplaner.sqlite");
             trainingsDB.Open();
             string create = "create table trainings (kategorie varchar(20), unterkategorie varchar(20), beschreibung varchar(200), name varchar(20), dauer int, bild varchar(100))";
             string create2 = "create table uebungen (kategorie varchar(20), unterkategorie varchar(20), beschreibung varchar(200), name varchar(20), bild varchar(100))";
+            string create3 = "create table zirkel (uebungen varchar(1000))";
             SQLiteCommand command = new SQLiteCommand(create, trainingsDB);
             command.ExecuteNonQuery();
             command = new SQLiteCommand(create2, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(create3, trainingsDB);
             command.ExecuteNonQuery();
             string insert = "insert into trainings (kategorie, unterkategorie, beschreibung, name, dauer, bild) values ('Aufwaermen','Einlaufen','Verschiedene Übungen in den Ecken','Workout1',15, 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
             string insert2 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Zirkel','HIIT','Kommt später','Burpees', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
@@ -115,7 +110,6 @@ namespace Trainingsplaner
             command = new SQLiteCommand(insert23, trainingsDB);
             command.ExecuteNonQuery();
         }
-
         private void pctboxTrainingErstellen_Click(object sender, EventArgs e)
         {
             FrmTrainingErstellen frm = new FrmTrainingErstellen();
@@ -142,6 +136,7 @@ namespace Trainingsplaner
 
         private void txtSuche_TextChanged(object sender, EventArgs e)
         {
+            //nach Workouts und Übungen
             string suche = txtSuche.Text;
             string select = "select * from trainings";
             trainingsDB.Open();
