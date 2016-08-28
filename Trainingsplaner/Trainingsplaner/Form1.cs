@@ -109,10 +109,11 @@ namespace Trainingsplaner
             command.ExecuteNonQuery();
             command = new SQLiteCommand(insert23, trainingsDB);
             command.ExecuteNonQuery();
+            trainingsDB.Close();
         }
         private void pctboxTrainingErstellen_Click(object sender, EventArgs e)
         {
-            FrmTrainingErstellen frm = new FrmTrainingErstellen();
+            FrmErstellauswahl frm = new FrmErstellauswahl();
             frm.Show();
         }
 
@@ -147,6 +148,11 @@ namespace Trainingsplaner
             //    if 
             //}
             trainingsDB.Close();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
