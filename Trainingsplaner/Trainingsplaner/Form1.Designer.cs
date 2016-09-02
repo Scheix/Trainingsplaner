@@ -33,12 +33,11 @@
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erstellenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblSuche = new System.Windows.Forms.Label();
-            this.txtSuche = new System.Windows.Forms.TextBox();
             this.pctboxUebersicht = new System.Windows.Forms.PictureBox();
             this.pctboxNeueUebung = new System.Windows.Forms.PictureBox();
             this.pctboxTrainings = new System.Windows.Forms.PictureBox();
             this.pctboxTrainingErstellen = new System.Windows.Forms.PictureBox();
+            this.btnSuchen = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctboxUebersicht)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctboxNeueUebung)).BeginInit();
@@ -77,23 +76,6 @@
             this.erstellenToolStripMenuItem.Name = "erstellenToolStripMenuItem";
             this.erstellenToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.erstellenToolStripMenuItem.Text = "Erstellen";
-            // 
-            // lblSuche
-            // 
-            this.lblSuche.AutoSize = true;
-            this.lblSuche.Location = new System.Drawing.Point(790, 7);
-            this.lblSuche.Name = "lblSuche";
-            this.lblSuche.Size = new System.Drawing.Size(41, 13);
-            this.lblSuche.TabIndex = 5;
-            this.lblSuche.Text = "Suche:";
-            // 
-            // txtSuche
-            // 
-            this.txtSuche.Location = new System.Drawing.Point(837, 4);
-            this.txtSuche.Name = "txtSuche";
-            this.txtSuche.Size = new System.Drawing.Size(115, 20);
-            this.txtSuche.TabIndex = 6;
-            this.txtSuche.TextChanged += new System.EventHandler(this.txtSuche_TextChanged);
             // 
             // pctboxUebersicht
             // 
@@ -136,14 +118,25 @@
             this.pctboxTrainingErstellen.TabStop = false;
             this.pctboxTrainingErstellen.Click += new System.EventHandler(this.pctboxTrainingErstellen_Click);
             // 
+            // btnSuchen
+            // 
+            this.btnSuchen.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuchen.Location = new System.Drawing.Point(833, 8);
+            this.btnSuchen.Name = "btnSuchen";
+            this.btnSuchen.Size = new System.Drawing.Size(116, 23);
+            this.btnSuchen.TabIndex = 5;
+            this.btnSuchen.Text = "Suchen";
+            this.btnSuchen.UseVisualStyleBackColor = false;
+            this.btnSuchen.Click += new System.EventHandler(this.btnSuchen_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(961, 583);
-            this.Controls.Add(this.txtSuche);
-            this.Controls.Add(this.lblSuche);
+            this.Controls.Add(this.btnSuchen);
             this.Controls.Add(this.pctboxUebersicht);
             this.Controls.Add(this.pctboxNeueUebung);
             this.Controls.Add(this.pctboxTrainings);
@@ -175,8 +168,7 @@
         private System.Windows.Forms.PictureBox pctboxTrainings;
         private System.Windows.Forms.PictureBox pctboxNeueUebung;
         private System.Windows.Forms.PictureBox pctboxUebersicht;
-        private System.Windows.Forms.Label lblSuche;
-        private System.Windows.Forms.TextBox txtSuche;
+        private System.Windows.Forms.Button btnSuchen;
     }
 }
 

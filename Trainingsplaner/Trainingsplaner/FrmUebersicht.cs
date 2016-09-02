@@ -28,17 +28,34 @@ namespace Trainingsplaner
         {
             ListViewHitTestInfo htInfo = listView1.HitTest(e.X, e.Y);
 
-            if (htInfo != null)
+            if (rbtnZirkel.Checked)
             {
-                if (htInfo.Item != null)
+                if (htInfo != null)
                 {
-                    ListViewItem lvi = htInfo.Item;
-                    string item = lvi.Text;
-                    FrmUebungsDetails frm = new FrmUebungsDetails();
-                    frm.UebungsName = item;
-                    frm.Show();
+                    if (htInfo.Item != null)
+                    {
+                        ListViewItem lvi = htInfo.Item;
+                        string item = lvi.Text;
+                        FrmZirkelDetails frm = new FrmZirkelDetails();
+                        frm.ZirkelName = item;
+                        frm.Show();
+                    }
                 }
             }
+            else
+            {
+                if (htInfo != null)
+                {
+                    if (htInfo.Item != null)
+                    {
+                        ListViewItem lvi = htInfo.Item;
+                        string item = lvi.Text;
+                        FrmUebungsDetails frm = new FrmUebungsDetails();
+                        frm.UebungsName = item;
+                        frm.Show();
+                    }
+                }
+            }        
         }
 
         private void rbtnAusdauer_CheckedChanged(object sender, EventArgs e)
@@ -79,6 +96,23 @@ namespace Trainingsplaner
                 listView1.Items.Add("" + reader["name"]);
             }
             trainingsDB.Close();
+        }
+
+        private void rbtnZirkel_CheckedChanged(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            if (rbtnZirkel.Checked)
+            {
+                string select = "select name from zirkel";
+                trainingsDB.Open();
+                SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
+                SQLiteDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    listView1.Items.Add("" + reader["name"]);
+                }
+                trainingsDB.Close();
+            }    
         }
     }
 }

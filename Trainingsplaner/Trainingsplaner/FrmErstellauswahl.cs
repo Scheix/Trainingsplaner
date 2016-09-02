@@ -21,12 +21,14 @@ namespace Trainingsplaner
         {
             FrmTrainingErstellen frm = new FrmTrainingErstellen();
             frm.Show();
+            this.Close();
         }
 
         private void btnZirkel_Click(object sender, EventArgs e)
         {
             FrmZirkelErstellen frm = new FrmZirkelErstellen();
             frm.Show();
+            this.Close();
         }
     }
 }

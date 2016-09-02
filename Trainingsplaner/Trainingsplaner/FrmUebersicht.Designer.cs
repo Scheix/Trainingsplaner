@@ -33,6 +33,7 @@
             this.rbtnHIIT = new System.Windows.Forms.RadioButton();
             this.rbtnAusdauer = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rbtnZirkel = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // rbtnHIIT
             // 
             this.rbtnHIIT.AutoSize = true;
-            this.rbtnHIIT.Location = new System.Drawing.Point(251, 3);
+            this.rbtnHIIT.Location = new System.Drawing.Point(202, 3);
             this.rbtnHIIT.Name = "rbtnHIIT";
             this.rbtnHIIT.Size = new System.Drawing.Size(46, 17);
             this.rbtnHIIT.TabIndex = 1;
@@ -85,6 +86,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.rbtnZirkel);
             this.panel1.Controls.Add(this.rbtnDehnen);
             this.panel1.Controls.Add(this.rbtnAusdauer);
             this.panel1.Controls.Add(this.rbtnHIIT);
@@ -92,6 +94,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(553, 27);
             this.panel1.TabIndex = 2;
+            // 
+            // rbtnZirkel
+            // 
+            this.rbtnZirkel.AutoSize = true;
+            this.rbtnZirkel.Location = new System.Drawing.Point(327, 3);
+            this.rbtnZirkel.Name = "rbtnZirkel";
+            this.rbtnZirkel.Size = new System.Drawing.Size(51, 17);
+            this.rbtnZirkel.TabIndex = 3;
+            this.rbtnZirkel.TabStop = true;
+            this.rbtnZirkel.Text = "Zirkel";
+            this.rbtnZirkel.UseVisualStyleBackColor = true;
+            this.rbtnZirkel.CheckedChanged += new System.EventHandler(this.rbtnZirkel_CheckedChanged);
             // 
             // FrmUebersicht
             // 
@@ -116,5 +130,6 @@
         private System.Windows.Forms.RadioButton rbtnHIIT;
         private System.Windows.Forms.RadioButton rbtnAusdauer;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbtnZirkel;
     }
 }

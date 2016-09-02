@@ -26,21 +26,48 @@ namespace Trainingsplaner
             //Change the directory of the project of simon und michael to the same folder, because of the import of the pictures
             initializeDatabase();
         }
+        private void pctboxTrainingErstellen_Click(object sender, EventArgs e)
+        {
+            FrmErstellauswahl frm = new FrmErstellauswahl();
+            frm.Show();
+        }
+
+        private void pctboxTrainings_Click(object sender, EventArgs e)
+        {
+            FrmTrainingshistorie frm = new FrmTrainingshistorie();
+            frm.Show();
+        }
+
+        private void pctboxNeueUebung_Click(object sender, EventArgs e)
+        {
+            FrmNeueUebung frm = new FrmNeueUebung();
+            frm.Show();
+        }
+
+        private void pctboxUebersicht_Click(object sender, EventArgs e)
+        {
+            FrmUebersicht frm = new FrmUebersicht();
+            frm.Show();
+        }
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
         private void initializeDatabase()
         {
-            // In Tabelle "zirkel" muss auch noch eine Liste der Übungen welche in diesem Workout durchgeführt werden
+            // Tabelle Trainings braucht bei der Erstellung noch ein Kategorie-Feld zur einteilung, soll vom Benutzer zum Schluss eingeteilt werden
             SQLiteConnection.CreateFile("Trainingsplaner.sqlite");
             trainingsDB.Open();
-            string create = "create table trainings (kategorie varchar(20), unterkategorie varchar(20), beschreibung varchar(200), name varchar(20), dauer int, bild varchar(100))";
+            string create = "create table trainings (name varchar(20), uebungen varchar(1000))";
             string create2 = "create table uebungen (kategorie varchar(20), unterkategorie varchar(20), beschreibung varchar(200), name varchar(20), bild varchar(100))";
-            string create3 = "create table zirkel (uebungen varchar(1000))";
+            string create3 = "create table zirkel (name varchar(20), uebungen varchar(1000), dauer varchar(20))";
             SQLiteCommand command = new SQLiteCommand(create, trainingsDB);
             command.ExecuteNonQuery();
             command = new SQLiteCommand(create2, trainingsDB);
             command.ExecuteNonQuery();
             command = new SQLiteCommand(create3, trainingsDB);
             command.ExecuteNonQuery();
-            string insert = "insert into trainings (kategorie, unterkategorie, beschreibung, name, dauer, bild) values ('Aufwaermen','Einlaufen','Verschiedene Übungen in den Ecken','Workout1',15, 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            //string insert = "insert into trainings (kategorie, unterkategorie, beschreibung, name, dauer, bild) values ('Aufwaermen','Einlaufen','Verschiedene Übungen in den Ecken','Workout1',15, 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
             string insert2 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Zirkel','HIIT','Kommt später','Burpees', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
             string insert3 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Zirkel','HIIT','Kommt später','Climbers', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
             string insert4 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Zirkel','HIIT','Kommt später','Jumping Jacks', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
@@ -63,8 +90,25 @@ namespace Trainingsplaner
             string insert21 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Aufwaermen','Laufen','Kommt später','5km Run', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
             string insert22 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Aufwaermen','Laufen','Kommt später','8km Run', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
             string insert23 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Aufwaermen','Laufen','Kommt später','10km Run', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
-            command = new SQLiteCommand(insert, trainingsDB);
-            command.ExecuteNonQuery();
+            string insert24 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Zirkel','Pause','Pause machen','10s Pause', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert25 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Zirkel','Pause','Pause machen','20s Pause', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert26 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Zirkel','Pause','Pause machen','30s Pause', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert27 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Zirkel','Pause','Pause machen','1min Pause', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert28 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Zirkel','Pause','Pause machen','2min Pause', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert29 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Zirkel','Pause','Pause machen','5min Pause', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert30 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Zirkel','Pause','Pause machen','10min Pause', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert31 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Abkühlen','Dehnen','Nimm eine Squat-aehnliche Position ein und senke deine Hüften so tief wie möglich ab, während du deinen Rücken gerade hälst. Greife deine Zehen und ziehe an ihnen. Deine Zehen sollten so gerade wie möglich nach vorne zeigen. Drücke ein Knie vorsichtig nach außen, bis du einen Stretch in der Innenseite deiner Oberschenkel verspürst.','Dehnübung 1', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert32 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Abkühlen','Dehnen','Kommt später','Dehnübung 2', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert33 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Abkühlen','Dehnen','Kommt später','Dehnübung 3', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert34 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Abkühlen','Dehnen','Kommt später','Dehnübung 4', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert35 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Abkühlen','Dehnen','Kommt später','Dehnübung 5', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert36 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Abkühlen','Dehnen','Kommt später','Dehnübung 6', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert37 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Abkühlen','Dehnen','Kommt später','Dehnübung 7', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert38 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Abkühlen','Dehnen','Kommt später','Dehnübung 8', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+            string insert39 = "insert into uebungen (kategorie, unterkategorie, beschreibung, name, bild) values ('Abkühlen','Dehnen','Kommt später','Dehnübung 9', 'C:\\Users\\Michael\\Desktop\\Eigene Dateien\\Schule\\Diplomarbeit\\Trainingsplaner\\Trainingsplaner\\Trainingsplaner\\Pictures\\pirelli.png')";
+
+            //command = new SQLiteCommand(insert, trainingsDB);
+            //command.ExecuteNonQuery();
             command = new SQLiteCommand(insert2, trainingsDB);
             command.ExecuteNonQuery();
             command = new SQLiteCommand(insert3, trainingsDB);
@@ -109,50 +153,45 @@ namespace Trainingsplaner
             command.ExecuteNonQuery();
             command = new SQLiteCommand(insert23, trainingsDB);
             command.ExecuteNonQuery();
-            trainingsDB.Close();
-        }
-        private void pctboxTrainingErstellen_Click(object sender, EventArgs e)
-        {
-            FrmErstellauswahl frm = new FrmErstellauswahl();
-            frm.Show();
-        }
-
-        private void pctboxTrainings_Click(object sender, EventArgs e)
-        {
-            FrmTrainingshistorie frm = new FrmTrainingshistorie();
-            frm.Show();
-        }
-
-        private void pctboxNeueUebung_Click(object sender, EventArgs e)
-        {
-            FrmNeueUebung frm = new FrmNeueUebung();
-            frm.Show();
-        }
-
-        private void pctboxUebersicht_Click(object sender, EventArgs e)
-        {
-            FrmUebersicht frm = new FrmUebersicht();
-            frm.Show();
-        }
-
-        private void txtSuche_TextChanged(object sender, EventArgs e)
-        {
-            //nach Workouts und Übungen
-            string suche = txtSuche.Text;
-            string select = "select * from trainings";
-            trainingsDB.Open();
-            SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
-            SQLiteDataReader reader = command.ExecuteReader();
-            //while (reader.Read())
-            //{
-            //    if 
-            //}
+            command = new SQLiteCommand(insert24, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert25, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert26, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert27, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert28, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert29, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert30, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert31, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert32, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert33, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert34, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert35, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert36, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert37, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert38, trainingsDB);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand(insert39, trainingsDB);
+            command.ExecuteNonQuery(); 
             trainingsDB.Close();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void btnSuchen_Click(object sender, EventArgs e)
         {
-
+            FrmSuche frm = new FrmSuche();
+            frm.Show();
         }
     }
 }
