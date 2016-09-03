@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace Trainingsplaner
 {
@@ -41,57 +43,37 @@ namespace Trainingsplaner
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //trainingsDB.Open();
-            //this.lstDetails.ActionAfterExport = Spire.DataExport.Common.ActionType.None;
-            //this.cellExport1.DataFormats.CultureName = "zh-CN";
-            //this.cellExport1.DataFormats.Currency = "?#,###,##0.00";
-            //this.cellExport1.DataFormats.DateTime = "yyyy-M-d H:mm";
-            //this.cellExport1.DataFormats.Float = "#,###,##0.00";
-            //this.cellExport1.DataFormats.Integer = "#,###,##0";
-            //this.cellExport1.DataFormats.Time = "H:mm";
-            //this.cellExport1.SheetOptions.AggregateFormat.Font.Name = "Arial";
-            //this.cellExport1.SheetOptions.CustomDataFormat.Font.Name = "Arial";
-            //this.cellExport1.SheetOptions.DefaultFont.Name = "Arial";
-            //this.cellExport1.SheetOptions.FooterFormat.Font.Name = "Arial";
-            //this.cellExport1.SheetOptions.HeaderFormat.Font.Name = "Arial";
-            //this.cellExport1.SheetOptions.HyperlinkFormat.Font.Color = Spire.DataExport.XLS.CellColor.Blue;
-            //this.cellExport1.SheetOptions.HyperlinkFormat.Font.Name = "Arial";
-            //this.cellExport1.SheetOptions.HyperlinkFormat.Font.Underline = Spire.DataExport.XLS.XlsFontUnderline.Single;
-            //this.cellExport1.SheetOptions.NoteFormat.Alignment.Horizontal = Spire.DataExport.XLS.HorizontalAlignment.Left;
-            //this.cellExport1.SheetOptions.NoteFormat.Alignment.Vertical = Spire.DataExport.XLS.VerticalAlignment.Top;
-            //this.cellExport1.SheetOptions.NoteFormat.Font.Bold = true;
-            //this.cellExport1.SheetOptions.NoteFormat.Font.Name = "Tahoma";
-            //this.cellExport1.SheetOptions.NoteFormat.Font.Size = 8F;
-            //this.cellExport1.SheetOptions.TitlesFormat.Font.Bold = true;
-            //this.cellExport1.SheetOptions.TitlesFormat.Font.Name = "Arial";
-            //this.cellExport1.DataSource = DataExport.Common.ExportSource.ListView;
-            //this.cellExport1.ListView = this.listView1;
-
-            //Using(MemoryStream stream = new MemoryStream())
-            //            {
-            //    cellExport1.SaveToFile(stream);
-            //    this.oleDbConnection1.Close();
-            //    Workbook workbook = new Workbook(stream);
-            //    PdfConverter pdfConverter = new PdfConverter(workbook);
-
-            //    PdfDocument pdfDocument = new PdfDocument();
-            //    pdfDocument.PageSettings.Orientation = pdf.PdfPageOrientation.Landscape;
-            //    pdfDocument.PageSettings.Width = 970;
-            //    pdfDocument.PageSettings.Height = 850;
-
-            //    PdfConverterSettings settings = new PdfConverterSettings();
-            //    settings.TemplateDocument = pdfDocument;
-            //    pdfDocument = pdfConverter.Convert(settings);
-
-            //    pdfDocument.SaveToFile("test.pdf");
-            //}
-            //string File = TrainingsName;
-            //List<string> result = new List<string>();
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10,10,42,35);
+            PdfWriter pri = PdfWriter.GetInstance(doc, new FileStream(TrainingsName+".pdf", FileMode.Create));
+            doc.Open();
+            //Training tr = new Training { Name="NewWOD", Uebungen = "Uebungen", Kategorie = "something", Unterkategorie = "anything"};
+            Paragraph pr = new Paragraph("This is my first line using Paragraph. \n hello world");
+            doc.Add(pr);
+            //List list = new List(List.UNORDERED);
+            //list.IndentationLeft = 30f;
+            //list.Add(new ListItem("Title"));
             //for (int i = 0; i < lstDetails.Items.Count; i++)
             //{
-            //    result.Add(lstDetails.Items[i].ToString());
+            //    list.Add(lstDetails.Items[i].Text);
             //}
-            //ExportListToPDF(result, File);
+            //doc.Add(list);
+
+            RomanList list = new RomanList(true, 20);
+            list.IndentationLeft = 30f;
+            for (int i = 0; i < lstDetails.Items.Count; i++)
+            {
+                list.Add(lstDetails.Items[i].Text);
+            }
+            List sublist = new List(List.UNORDERED, 40f);
+            sublist.SetListSymbol("\u2022");
+            list.IndentationLeft = 40f;
+            sublist.Add("One");
+            sublist.Add("Two");
+            sublist.Add("Three");
+            sublist.Add("Roman List");
+            sublist.Add(list);
+            doc.Add(sublist);
+            doc.Close();
         }
     }
 }
