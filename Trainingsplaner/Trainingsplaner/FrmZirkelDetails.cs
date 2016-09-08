@@ -45,10 +45,38 @@ namespace Trainingsplaner
                     string[] item = uebungen[i].Split(',');
                     string name = item[0];
                     string wdh = item[1];
-                    lstDetails.Items.Add(name + " >> " + wdh + " Wiederholungen");
+                    string ub = "select name from uebungen where kategorie = 'HIIT'";
+                    SQLiteCommand com = new SQLiteCommand(ub, trainingsDB);
+                    SQLiteDataReader r = com.ExecuteReader();
+                    int counter = 0;
+                    while (r.Read())
+                    {
+                        if (r["name"].ToString().Equals(name))
+                        {
+                            counter++;
+                            lstDetails.Items.Add(name + " >> " + wdh + " Wiederholungen");
+                        }
+                    }
+                    if (counter == 0)
+                    {
+                        lstDetails.Items.Add(name);
+                    }
                 }
             }
             trainingsDB.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Möchten Sie den Zirkel wirklich löschen?", "Löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                string delete = "delete from zirkel where name = '" + this.ZirkelName + "'";
+                trainingsDB.Open();
+                SQLiteCommand command = new SQLiteCommand(delete, trainingsDB);
+                command.ExecuteNonQuery();
+                trainingsDB.Close();
+                this.Close();
+            }
         }
     }
 }

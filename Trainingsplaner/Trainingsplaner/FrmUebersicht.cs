@@ -78,15 +78,15 @@ namespace Trainingsplaner
             string select = "";
             if (rbtnAusdauer.Checked)
             {
-                select = "select name from uebungen where unterkategorie = 'Laufen'";
+                select = "select name from uebungen where kategorie = 'Laufen'";
             }
             else if (rbtnHIIT.Checked)
             {
-                select = "select name from uebungen where unterkategorie = 'HIIT'";
+                select = "select name from uebungen where kategorie = 'HIIT'";
             }
             else
             {
-                select = "select name from uebungen where unterkategorie = 'Dehnen'";
+                select = "select name from zirkel";
             }
             trainingsDB.Open();
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
@@ -100,19 +100,7 @@ namespace Trainingsplaner
 
         private void rbtnZirkel_CheckedChanged(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            if (rbtnZirkel.Checked)
-            {
-                string select = "select name from zirkel";
-                trainingsDB.Open();
-                SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
-                SQLiteDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    listView1.Items.Add("" + reader["name"]);
-                }
-                trainingsDB.Close();
-            }    
+            radiobuttonCheckedChanged();    
         }
     }
 }

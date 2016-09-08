@@ -23,15 +23,15 @@ namespace Trainingsplaner
         private void FrmZirkelErstellen_Load(object sender, EventArgs e)
         {
             trainingsDB.Open();
-            string select = "select distinct unterkategorie from uebungen";
+            string select = "select distinct kategorie from uebungen";
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
             command.ExecuteNonQuery();
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                cbxKategorie.Items.Add(""+reader["unterkategorie"]);
+                cbxKategorie.Items.Add(""+reader["kategorie"]);
             }
-            string selectUebungen = "select name from uebungen where unterkategorie = '"+cbxKategorie.Text+"'";
+            string selectUebungen = "select name from uebungen where kategorie = '"+cbxKategorie.Text+"'";
             command = new SQLiteCommand(selectUebungen, trainingsDB);
             command.ExecuteNonQuery();
             reader = command.ExecuteReader();
@@ -41,13 +41,12 @@ namespace Trainingsplaner
             }
             trainingsDB.Close();
         }
-
         private void cbxKategorie_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             trainingsDB.Open();
             lstUebungen.Items.Clear();
             string selectedItem = cbxKategorie.SelectedItem.ToString();
-            string select = "select name from uebungen where unterkategorie = '" + selectedItem + "'";
+            string select = "select name from uebungen where kategorie = '" + selectedItem + "'";
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
             command.ExecuteNonQuery();
             SQLiteDataReader reader = command.ExecuteReader();
@@ -64,21 +63,20 @@ namespace Trainingsplaner
             else
                 e.Effect = DragDropEffects.None;
         }
-
         private void lstZirkel_DragDrop_1(object sender, DragEventArgs e)
         {
-            string unterkategorie = "";
+            string kategorie = "";
             trainingsDB.Open();
-            string select = "select unterkategorie from uebungen where name = '"+ e.Data.GetData(DataFormats.Text).ToString()+"'";
+            string select = "select kategorie from uebungen where name = '"+ e.Data.GetData(DataFormats.Text).ToString()+"'";
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
             command.ExecuteNonQuery();
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                unterkategorie = ""+reader["unterkategorie"];
+                kategorie = ""+reader["kategorie"];
             }
             trainingsDB.Close();
-            if (unterkategorie.Equals("HIIT"))
+            if (kategorie.Equals("HIIT"))
             {
                 string value = "10";
                 if (InputBox("Number of Reps", "How many reps?",ref value) == DialogResult.OK)

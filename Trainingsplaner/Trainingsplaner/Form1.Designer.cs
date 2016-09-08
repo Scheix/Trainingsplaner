@@ -33,11 +33,13 @@
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erstellenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.organisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pctboxUebersicht = new System.Windows.Forms.PictureBox();
             this.pctboxNeueUebung = new System.Windows.Forms.PictureBox();
             this.pctboxTrainings = new System.Windows.Forms.PictureBox();
             this.pctboxTrainingErstellen = new System.Windows.Forms.PictureBox();
             this.btnSuchen = new System.Windows.Forms.Button();
+            this.uebungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctboxUebersicht)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctboxNeueUebung)).BeginInit();
@@ -73,9 +75,19 @@
             // 
             // erstellenToolStripMenuItem
             // 
+            this.erstellenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.organisationToolStripMenuItem,
+            this.uebungenToolStripMenuItem});
             this.erstellenToolStripMenuItem.Name = "erstellenToolStripMenuItem";
             this.erstellenToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.erstellenToolStripMenuItem.Text = "Erstellen";
+            // 
+            // organisationToolStripMenuItem
+            // 
+            this.organisationToolStripMenuItem.Name = "organisationToolStripMenuItem";
+            this.organisationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.organisationToolStripMenuItem.Text = "Organisation";
+            this.organisationToolStripMenuItem.Click += new System.EventHandler(this.organisationToolStripMenuItem_Click);
             // 
             // pctboxUebersicht
             // 
@@ -130,6 +142,12 @@
             this.btnSuchen.UseVisualStyleBackColor = false;
             this.btnSuchen.Click += new System.EventHandler(this.btnSuchen_Click);
             // 
+            // uebungenToolStripMenuItem
+            // 
+            this.uebungenToolStripMenuItem.Name = "uebungenToolStripMenuItem";
+            this.uebungenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.uebungenToolStripMenuItem.Text = "Uebungen";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,6 +187,8 @@
         private System.Windows.Forms.PictureBox pctboxNeueUebung;
         private System.Windows.Forms.PictureBox pctboxUebersicht;
         private System.Windows.Forms.Button btnSuchen;
+        private System.Windows.Forms.ToolStripMenuItem organisationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uebungenToolStripMenuItem;
     }
 }
 

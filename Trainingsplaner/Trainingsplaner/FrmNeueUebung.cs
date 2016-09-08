@@ -21,5 +21,31 @@ namespace Trainingsplaner
         {
 
         }
+
+        private void btnHIIT_Click(object sender, EventArgs e)
+        {
+            FrmStandardUebungErstellen frm = new FrmStandardUebungErstellen();
+            frm.Kategorie = "HIIT";
+            frm.Show();
+        }
+
+        private void btnLaufen_Click(object sender, EventArgs e)
+        {
+            FrmStandardUebungErstellen frm = new FrmStandardUebungErstellen();
+            frm.Kategorie = "Laufen";
+            frm.Show();
+        }
+
+        private void btnTechnik_Click(object sender, EventArgs e)
+        {
+            FrmStandardUebungErstellen frm = new FrmStandardUebungErstellen();
+            frm.Kategorie = "Technik";
+            frm.Show();
+        }
+
+        private void btnBenutzerdefiniert_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

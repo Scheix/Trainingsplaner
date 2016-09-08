@@ -34,6 +34,8 @@
             this.lstTraining = new System.Windows.Forms.ListView();
             this.cbxKategorie = new System.Windows.Forms.ComboBox();
             this.lstUebungen = new System.Windows.Forms.ListView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboxEinteilung = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -57,7 +59,7 @@
             // btnFertig
             // 
             this.btnFertig.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFertig.Location = new System.Drawing.Point(13, 556);
+            this.btnFertig.Location = new System.Drawing.Point(13, 559);
             this.btnFertig.Name = "btnFertig";
             this.btnFertig.Size = new System.Drawing.Size(752, 79);
             this.btnFertig.TabIndex = 13;
@@ -71,7 +73,7 @@
             this.lstTraining.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstTraining.Location = new System.Drawing.Point(200, 12);
             this.lstTraining.Name = "lstTraining";
-            this.lstTraining.Size = new System.Drawing.Size(565, 511);
+            this.lstTraining.Size = new System.Drawing.Size(565, 484);
             this.lstTraining.TabIndex = 12;
             this.lstTraining.UseCompatibleStateImageBehavior = false;
             this.lstTraining.View = System.Windows.Forms.View.Tile;
@@ -100,11 +102,31 @@
             this.lstUebungen.View = System.Windows.Forms.View.Tile;
             this.lstUebungen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstUebungen_MouseDown);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(200, 504);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 20);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Kategorie:";
+            // 
+            // cboxEinteilung
+            // 
+            this.cboxEinteilung.FormattingEnabled = true;
+            this.cboxEinteilung.Location = new System.Drawing.Point(378, 504);
+            this.cboxEinteilung.Name = "cboxEinteilung";
+            this.cboxEinteilung.Size = new System.Drawing.Size(385, 21);
+            this.cboxEinteilung.TabIndex = 17;
+            // 
             // FrmTrainingErstellen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 645);
+            this.Controls.Add(this.cboxEinteilung);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnFertig);
@@ -127,5 +149,7 @@
         private System.Windows.Forms.ListView lstTraining;
         private System.Windows.Forms.ComboBox cbxKategorie;
         private System.Windows.Forms.ListView lstUebungen;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cboxEinteilung;
     }
 }

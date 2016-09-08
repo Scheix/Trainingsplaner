@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
-            this.rbtnDehnen = new System.Windows.Forms.RadioButton();
             this.rbtnHIIT = new System.Windows.Forms.RadioButton();
             this.rbtnAusdauer = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,22 +47,10 @@
             this.listView1.View = System.Windows.Forms.View.Tile;
             this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
             // 
-            // rbtnDehnen
-            // 
-            this.rbtnDehnen.AutoSize = true;
-            this.rbtnDehnen.Location = new System.Drawing.Point(487, 3);
-            this.rbtnDehnen.Name = "rbtnDehnen";
-            this.rbtnDehnen.Size = new System.Drawing.Size(63, 17);
-            this.rbtnDehnen.TabIndex = 2;
-            this.rbtnDehnen.TabStop = true;
-            this.rbtnDehnen.Text = "Dehnen";
-            this.rbtnDehnen.UseVisualStyleBackColor = true;
-            this.rbtnDehnen.CheckedChanged += new System.EventHandler(this.rbtnDehnen_CheckedChanged);
-            // 
             // rbtnHIIT
             // 
             this.rbtnHIIT.AutoSize = true;
-            this.rbtnHIIT.Location = new System.Drawing.Point(202, 3);
+            this.rbtnHIIT.Location = new System.Drawing.Point(255, 3);
             this.rbtnHIIT.Name = "rbtnHIIT";
             this.rbtnHIIT.Size = new System.Drawing.Size(46, 17);
             this.rbtnHIIT.TabIndex = 1;
@@ -87,7 +74,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.rbtnZirkel);
-            this.panel1.Controls.Add(this.rbtnDehnen);
             this.panel1.Controls.Add(this.rbtnAusdauer);
             this.panel1.Controls.Add(this.rbtnHIIT);
             this.panel1.Location = new System.Drawing.Point(11, 6);
@@ -98,7 +84,7 @@
             // rbtnZirkel
             // 
             this.rbtnZirkel.AutoSize = true;
-            this.rbtnZirkel.Location = new System.Drawing.Point(327, 3);
+            this.rbtnZirkel.Location = new System.Drawing.Point(499, 3);
             this.rbtnZirkel.Name = "rbtnZirkel";
             this.rbtnZirkel.Size = new System.Drawing.Size(51, 17);
             this.rbtnZirkel.TabIndex = 3;
@@ -126,7 +112,6 @@
         #endregion
 
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.RadioButton rbtnDehnen;
         private System.Windows.Forms.RadioButton rbtnHIIT;
         private System.Windows.Forms.RadioButton rbtnAusdauer;
         private System.Windows.Forms.Panel panel1;

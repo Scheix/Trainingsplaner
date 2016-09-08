@@ -31,7 +31,7 @@ namespace Trainingsplaner
             }
             else
             {
-                select = "select name from uebungen where unterkategorie = '" + selectedItem + "'";
+                select = "select name from uebungen where kategorie = '" + selectedItem + "'";
             }
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
             command.ExecuteNonQuery();
@@ -46,16 +46,21 @@ namespace Trainingsplaner
         private void FrmTrainingErstellen_Load(object sender, EventArgs e)
         {
             trainingsDB.Open();
-            string select = "select distinct unterkategorie from uebungen";
+            cboxEinteilung.Items.Add("Aufwaermen");
+            cboxEinteilung.Items.Add("Technik");
+            cboxEinteilung.Items.Add("Ausdauer");
+            cboxEinteilung.Items.Add("Kraft");
+            cboxEinteilung.Items.Add("Locker");
+            string select = "select distinct kategorie from uebungen";
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
             command.ExecuteNonQuery();
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                cbxKategorie.Items.Add("" + reader["unterkategorie"]);
+                cbxKategorie.Items.Add("" + reader["kategorie"]);
             }
             cbxKategorie.Items.Add("Zirkel");
-            string selectUebungen = "select name from uebungen where unterkategorie = '" + cbxKategorie.Text + "'";
+            string selectUebungen = "select name from uebungen where kategorie = '" + cbxKategorie.Text + "'";
             command = new SQLiteCommand(selectUebungen, trainingsDB);
             command.ExecuteNonQuery();
             reader = command.ExecuteReader();
@@ -96,13 +101,14 @@ namespace Trainingsplaner
         private void btnFertig_Click(object sender, EventArgs e)
         {
             trainingsDB.Open();
+            string kategorie = cboxEinteilung.SelectedItem.ToString();
             string name = txtName.Text;
             string trainingsliste = "";
             for (int i = 0; i < lstTraining.Items.Count; i++)
             {
                 trainingsliste = trainingsliste + lstTraining.Items[i].Text + ";";
             }
-            string insert = "insert into trainings (name,uebungen) values ('" + name + "','" + trainingsliste + "')";
+            string insert = "insert into trainings (name,uebungen,kategorie) values ('" + name + "','" + trainingsliste + "','"+kategorie+"')";
             SQLiteCommand command = new SQLiteCommand(insert, trainingsDB);
             command.ExecuteNonQuery();
             trainingsDB.Close();
