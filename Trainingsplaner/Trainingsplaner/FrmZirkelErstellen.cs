@@ -79,7 +79,7 @@ namespace Trainingsplaner
             if (kategorie.Equals("HIIT"))
             {
                 string value = "10";
-                if (InputBox("Number of Reps", "How many reps?",ref value) == DialogResult.OK)
+                if (InputBox("Wiederholungen", "Wie viele Wiederholungen?",ref value) == DialogResult.OK)
                 {
                     Zirkel z = new Zirkel { Wiederholungen = Convert.ToInt32(value), Uebungsname = e.Data.GetData(DataFormats.Text).ToString() };
                     list.Add(z);
@@ -118,13 +118,21 @@ namespace Trainingsplaner
                 listOfExercises = listOfExercises + list[i].Uebungsname+","+list[i].Wiederholungen+";";
             }
             string value = "5 Runden";
-            if (InputBox("Art der Durchführung", "Bitte geben Sie im folgenden Feld die von Ihnen gewünschte Art der Durchführung des Zirkels an:", ref value) == DialogResult.OK)
+            if (InputBox("Art der Durchführung", "Soll der Zirkel in Runden oder in einer bestimmten Anzahl an Minuten absolviert werden? (Eingabebeispiel: 5 Runden oder 10 Minuten)", ref value) == DialogResult.OK)
             {
-                string insert = "insert into zirkel (name ,uebungen, dauer) values ('" + name + "','" + listOfExercises + "','"+value + "')";
-                SQLiteCommand command = new SQLiteCommand(insert, trainingsDB);
-                command.ExecuteNonQuery();
-                trainingsDB.Close();
-                this.Close();
+                if (value.EndsWith("Runden")|| value.EndsWith("Wiederholungen"))
+                {
+                    string insert = "insert into zirkel (name ,uebungen, dauer) values ('" + name + "','" + listOfExercises + "','" + value + "')";
+                    SQLiteCommand command = new SQLiteCommand(insert, trainingsDB);
+                    command.ExecuteNonQuery();
+                    trainingsDB.Close();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Fehlerhafte Eingabe, bitte versuchen Sie es erneut!", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    trainingsDB.Close();
+                }
             }
         }
         public static DialogResult InputBox(string title, string promptText, ref string value)

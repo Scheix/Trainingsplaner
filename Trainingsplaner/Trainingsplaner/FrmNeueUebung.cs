@@ -45,7 +45,8 @@ namespace Trainingsplaner
 
         private void btnBenutzerdefiniert_Click(object sender, EventArgs e)
         {
-
+            FrmBenutzerdefinierteUebung frm = new FrmBenutzerdefinierteUebung();
+            frm.Show();
         }
     }
 }

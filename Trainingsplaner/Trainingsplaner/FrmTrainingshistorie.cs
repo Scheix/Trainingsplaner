@@ -43,7 +43,7 @@ namespace Trainingsplaner
                 {
                     ListViewItem lvi = htInfo.Item;
                     string item = lvi.Text;
-                    FrmTrainingsDetails frm = new FrmTrainingsDetails();
+                    FrmTrainingsDetails frm = new FrmTrainingsDetails(this);
                     frm.TrainingsName = item;
                     frm.Show();
                 }
@@ -104,6 +104,10 @@ namespace Trainingsplaner
         }
 
         private void rbtnLocker_CheckedChanged(object sender, EventArgs e)
+        {
+            radiobuttonCheckedChanged();
+        }
+        public void ReloadList()
         {
             radiobuttonCheckedChanged();
         }

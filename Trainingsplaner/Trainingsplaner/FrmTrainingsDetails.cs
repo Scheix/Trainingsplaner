@@ -17,8 +17,10 @@ namespace Trainingsplaner
     public partial class FrmTrainingsDetails : Form
     {
         SQLiteConnection trainingsDB = new SQLiteConnection("Data Source=Trainingsplaner.sqlite;Version=3;");
-        public FrmTrainingsDetails()
+        Form uebersichtRef;
+        public FrmTrainingsDetails(Form uebersicht)
         {
+            this.uebersichtRef = uebersicht;
             InitializeComponent();
         }
         public string TrainingsName { get; set; }
@@ -153,6 +155,10 @@ namespace Trainingsplaner
                 SQLiteCommand command = new SQLiteCommand(delete, trainingsDB);
                 command.ExecuteNonQuery();
                 trainingsDB.Close();
+                if (uebersichtRef.GetType() == typeof(FrmTrainingshistorie))
+                {
+                    ((FrmTrainingshistorie)uebersichtRef).ReloadList();
+                }
                 this.Close();
             }
         }

@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listView1 = new System.Windows.Forms.ListView();
             this.rbtnHIIT = new System.Windows.Forms.RadioButton();
             this.rbtnAusdauer = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBenutzerdefiniert = new System.Windows.Forms.RadioButton();
+            this.btnTechnik = new System.Windows.Forms.RadioButton();
             this.rbtnZirkel = new System.Windows.Forms.RadioButton();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,11 +54,10 @@
             // rbtnHIIT
             // 
             this.rbtnHIIT.AutoSize = true;
-            this.rbtnHIIT.Location = new System.Drawing.Point(255, 3);
+            this.rbtnHIIT.Location = new System.Drawing.Point(163, 3);
             this.rbtnHIIT.Name = "rbtnHIIT";
             this.rbtnHIIT.Size = new System.Drawing.Size(46, 17);
             this.rbtnHIIT.TabIndex = 1;
-            this.rbtnHIIT.TabStop = true;
             this.rbtnHIIT.Text = "HIIT";
             this.rbtnHIIT.UseVisualStyleBackColor = true;
             this.rbtnHIIT.CheckedChanged += new System.EventHandler(this.rbtnHIIT_CheckedChanged);
@@ -73,6 +76,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnBenutzerdefiniert);
+            this.panel1.Controls.Add(this.btnTechnik);
             this.panel1.Controls.Add(this.rbtnZirkel);
             this.panel1.Controls.Add(this.rbtnAusdauer);
             this.panel1.Controls.Add(this.rbtnHIIT);
@@ -81,10 +86,34 @@
             this.panel1.Size = new System.Drawing.Size(553, 27);
             this.panel1.TabIndex = 2;
             // 
+            // btnBenutzerdefiniert
+            // 
+            this.btnBenutzerdefiniert.AutoSize = true;
+            this.btnBenutzerdefiniert.Location = new System.Drawing.Point(351, 3);
+            this.btnBenutzerdefiniert.Name = "btnBenutzerdefiniert";
+            this.btnBenutzerdefiniert.Size = new System.Drawing.Size(104, 17);
+            this.btnBenutzerdefiniert.TabIndex = 5;
+            this.btnBenutzerdefiniert.Text = "Benutzerdefiniert";
+            this.btnBenutzerdefiniert.UseVisualStyleBackColor = true;
+            this.btnBenutzerdefiniert.CheckedChanged += new System.EventHandler(this.btnBenutzerdefiniert_CheckedChanged);
+            // 
+            // btnTechnik
+            // 
+            this.btnTechnik.AutoSize = true;
+            this.btnTechnik.Checked = true;
+            this.btnTechnik.Location = new System.Drawing.Point(245, 3);
+            this.btnTechnik.Name = "btnTechnik";
+            this.btnTechnik.Size = new System.Drawing.Size(64, 17);
+            this.btnTechnik.TabIndex = 4;
+            this.btnTechnik.TabStop = true;
+            this.btnTechnik.Text = "Technik";
+            this.btnTechnik.UseVisualStyleBackColor = true;
+            this.btnTechnik.CheckedChanged += new System.EventHandler(this.btnTechnik_CheckedChanged);
+            // 
             // rbtnZirkel
             // 
             this.rbtnZirkel.AutoSize = true;
-            this.rbtnZirkel.Location = new System.Drawing.Point(499, 3);
+            this.rbtnZirkel.Location = new System.Drawing.Point(490, 3);
             this.rbtnZirkel.Name = "rbtnZirkel";
             this.rbtnZirkel.Size = new System.Drawing.Size(51, 17);
             this.rbtnZirkel.TabIndex = 3;
@@ -92,6 +121,12 @@
             this.rbtnZirkel.Text = "Zirkel";
             this.rbtnZirkel.UseVisualStyleBackColor = true;
             this.rbtnZirkel.CheckedChanged += new System.EventHandler(this.rbtnZirkel_CheckedChanged);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // FrmUebersicht
             // 
@@ -116,5 +151,8 @@
         private System.Windows.Forms.RadioButton rbtnAusdauer;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton rbtnZirkel;
+        private System.Windows.Forms.RadioButton btnBenutzerdefiniert;
+        private System.Windows.Forms.RadioButton btnTechnik;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

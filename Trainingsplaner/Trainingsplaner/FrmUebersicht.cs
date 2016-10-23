@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,8 @@ namespace Trainingsplaner
 
         private void FrmUebersicht_Load(object sender, EventArgs e)
         {
-            
+            //addImagesToListView();
+            radiobuttonCheckedChanged();
         }
 
         private void listView1_MouseClick(object sender, MouseEventArgs e)
@@ -36,7 +38,7 @@ namespace Trainingsplaner
                     {
                         ListViewItem lvi = htInfo.Item;
                         string item = lvi.Text;
-                        FrmZirkelDetails frm = new FrmZirkelDetails();
+                        FrmZirkelDetails frm = new FrmZirkelDetails(this);
                         frm.ZirkelName = item;
                         frm.Show();
                     }
@@ -50,12 +52,17 @@ namespace Trainingsplaner
                     {
                         ListViewItem lvi = htInfo.Item;
                         string item = lvi.Text;
-                        FrmUebungsDetails frm = new FrmUebungsDetails();
+                        FrmUebungsDetails frm = new FrmUebungsDetails(this);
                         frm.UebungsName = item;
                         frm.Show();
                     }
                 }
             }        
+        }
+
+        public void ReloadList()
+        {
+            radiobuttonCheckedChanged();
         }
 
         private void rbtnAusdauer_CheckedChanged(object sender, EventArgs e)
@@ -78,22 +85,36 @@ namespace Trainingsplaner
             string select = "";
             if (rbtnAusdauer.Checked)
             {
-                select = "select name from uebungen where kategorie = 'Laufen'";
+                select = "select name, bild from uebungen where kategorie = 'Laufen'";
             }
             else if (rbtnHIIT.Checked)
             {
-                select = "select name from uebungen where kategorie = 'HIIT'";
+                select = "select name, bild from uebungen where kategorie = 'HIIT'";
             }
-            else
+            else if (rbtnZirkel.Checked)
             {
                 select = "select name from zirkel";
+            }
+            else if (btnBenutzerdefiniert.Checked)
+            {
+                select = "select name, bild from uebungen where kategorie = 'Benutzerdefiniert'";
+            }
+            else if (btnTechnik.Checked)
+            {
+                select = "select name, bild from uebungen where kategorie = 'Technik'";
             }
             trainingsDB.Open();
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                listView1.Items.Add("" + reader["name"]);
+                string sth = "" + reader["bild"];
+                imageList1.Images.Add(Image.FromFile("" + reader["bild"]));
+                listView1.LargeImageList = imageList1;
+                listView1.SmallImageList = imageList1;
+                listView1.View = View.Details;
+                
+                listView1.Items.Add(new ListViewItem { ImageIndex = 0, Text = ""+reader["name"]});
             }
             trainingsDB.Close();
         }
@@ -101,6 +122,42 @@ namespace Trainingsplaner
         private void rbtnZirkel_CheckedChanged(object sender, EventArgs e)
         {
             radiobuttonCheckedChanged();    
+        }
+
+        private void btnTechnik_CheckedChanged(object sender, EventArgs e)
+        {
+            radiobuttonCheckedChanged();
+        }
+
+        private void btnBenutzerdefiniert_CheckedChanged(object sender, EventArgs e)
+        {
+            radiobuttonCheckedChanged();
+        }
+        private void addImagesToListView ()
+        {
+            DirectoryInfo dir = new DirectoryInfo(@"C:\Trainingsplaner\Fotos");
+
+            foreach (FileInfo file in dir.GetFiles())
+            {
+                try
+                {
+                    this.imageList1.Images.Add(Image.FromFile(file.FullName));
+                }
+                catch
+                {
+                    Console.WriteLine("This is not an image file");
+                }
+            }
+            this.listView1.View = View.LargeIcon;
+            this.imageList1.ImageSize = new Size(42, 42);
+            this.listView1.LargeImageList = this.imageList1;
+
+            for (int j = 0; j < this.imageList1.Images.Count; j++)
+            {
+                ListViewItem item = new ListViewItem();
+                item.ImageIndex = j;
+                this.listView1.Items.Add(item);
+            }
         }
     }
 }

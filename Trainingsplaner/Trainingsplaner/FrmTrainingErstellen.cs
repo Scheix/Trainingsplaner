@@ -101,6 +101,21 @@ namespace Trainingsplaner
         private void btnFertig_Click(object sender, EventArgs e)
         {
             trainingsDB.Open();
+            string select = "select name from trainings";
+            SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
+            command.ExecuteNonQuery();
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                if (reader["name"].ToString().Equals(txtName.Text))
+                {
+                    MessageBox.Show("Dieser Name existieirt bereits, bitte geben Sie einen neuen Namen ein", "Warnung",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    reader.Close();
+                    trainingsDB.Close();
+                    return;
+                }
+            }
             string kategorie = cboxEinteilung.SelectedItem.ToString();
             string name = txtName.Text;
             string trainingsliste = "";
@@ -108,11 +123,21 @@ namespace Trainingsplaner
             {
                 trainingsliste = trainingsliste + lstTraining.Items[i].Text + ";";
             }
-            string insert = "insert into trainings (name,uebungen,kategorie) values ('" + name + "','" + trainingsliste + "','"+kategorie+"')";
-            SQLiteCommand command = new SQLiteCommand(insert, trainingsDB);
+            string insert = "insert into trainings (name,uebungen,kategorie) values ('" + name + "','" + trainingsliste + "','" + kategorie + "')";
+            command = new SQLiteCommand(insert, trainingsDB);
+            //trainingsDB.Close();
+            //trainingsDB.Open();
+            //using (trainingsDB)
+            //{
+            //    trainingsDB.Open();
+            //    using (SQLiteCommand cmd = new SQLiteCommand(insert, trainingsDB))
+            //    {
+            //        cmd.ExecuteNonQuery();
+            //    }
+            //}
             command.ExecuteNonQuery();
             trainingsDB.Close();
-            this.Close();
+            this.Close();     
         }
 
         private void lstTraining_MouseClick(object sender, MouseEventArgs e)

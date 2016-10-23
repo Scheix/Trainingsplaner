@@ -28,7 +28,7 @@ namespace Trainingsplaner
             string to = txtTo.Text;
             string msg = richTextBox1.Text;
 
-            WhatsApp wa = new WhatsApp(from, "Michi2312","Scheuringer",false, false);
+            WhatsApp wa = new WhatsApp(from, "","",false, false);
             wa.OnConnectSuccess += () =>
             {
                 MessageBox.Show("Verbindet mit WhatsApp...");

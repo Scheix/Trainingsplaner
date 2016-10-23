@@ -31,15 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kalenderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erstellenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.organisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uebungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pctboxUebersicht = new System.Windows.Forms.PictureBox();
             this.pctboxNeueUebung = new System.Windows.Forms.PictureBox();
             this.pctboxTrainings = new System.Windows.Forms.PictureBox();
             this.pctboxTrainingErstellen = new System.Windows.Forms.PictureBox();
             this.btnSuchen = new System.Windows.Forms.Button();
-            this.uebungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctboxUebersicht)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctboxNeueUebung)).BeginInit();
@@ -49,7 +50,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(119)))), ((int)(((byte)(24)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dateiToolStripMenuItem,
             this.bearbeitenToolStripMenuItem,
@@ -63,9 +64,18 @@
             // 
             // dateiToolStripMenuItem
             // 
+            this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kalenderToolStripMenuItem});
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
+            // 
+            // kalenderToolStripMenuItem
+            // 
+            this.kalenderToolStripMenuItem.Name = "kalenderToolStripMenuItem";
+            this.kalenderToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.kalenderToolStripMenuItem.Text = "Kalender";
+            this.kalenderToolStripMenuItem.Click += new System.EventHandler(this.kalenderToolStripMenuItem_Click);
             // 
             // bearbeitenToolStripMenuItem
             // 
@@ -85,9 +95,15 @@
             // organisationToolStripMenuItem
             // 
             this.organisationToolStripMenuItem.Name = "organisationToolStripMenuItem";
-            this.organisationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.organisationToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.organisationToolStripMenuItem.Text = "Organisation";
             this.organisationToolStripMenuItem.Click += new System.EventHandler(this.organisationToolStripMenuItem_Click);
+            // 
+            // uebungenToolStripMenuItem
+            // 
+            this.uebungenToolStripMenuItem.Name = "uebungenToolStripMenuItem";
+            this.uebungenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.uebungenToolStripMenuItem.Text = "Uebungen";
             // 
             // pctboxUebersicht
             // 
@@ -142,17 +158,11 @@
             this.btnSuchen.UseVisualStyleBackColor = false;
             this.btnSuchen.Click += new System.EventHandler(this.btnSuchen_Click);
             // 
-            // uebungenToolStripMenuItem
-            // 
-            this.uebungenToolStripMenuItem.Name = "uebungenToolStripMenuItem";
-            this.uebungenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.uebungenToolStripMenuItem.Text = "Uebungen";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(119)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(961, 583);
             this.Controls.Add(this.btnSuchen);
             this.Controls.Add(this.pctboxUebersicht);
@@ -189,6 +199,7 @@
         private System.Windows.Forms.Button btnSuchen;
         private System.Windows.Forms.ToolStripMenuItem organisationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uebungenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kalenderToolStripMenuItem;
     }
 }
 

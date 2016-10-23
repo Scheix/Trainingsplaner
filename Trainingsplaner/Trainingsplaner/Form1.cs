@@ -16,6 +16,7 @@ namespace Trainingsplaner
 {
     public partial class Form1 : Form
     {
+        // Facebook anbindung
         SQLiteConnection trainingsDB = new SQLiteConnection("Data Source=Trainingsplaner.sqlite;Version=3;");
         public Form1()
         {
@@ -64,11 +65,14 @@ namespace Trainingsplaner
                 string create = "create table trainings (name varchar(20), uebungen varchar(1000), kategorie varchar(20))";
                 string create2 = "create table uebungen (kategorie varchar(20), beschreibung varchar(200), name varchar(20), bild varchar(100))";
                 string create3 = "create table zirkel (name varchar(20), uebungen varchar(1000), dauer varchar(20))";
+                string create4 = "create table termine (name varchar(40), date varchar(20))";
                 SQLiteCommand command = new SQLiteCommand(create, trainingsDB);
                 command.ExecuteNonQuery();
                 command = new SQLiteCommand(create2, trainingsDB);
                 command.ExecuteNonQuery();
                 command = new SQLiteCommand(create3, trainingsDB);
+                command.ExecuteNonQuery();
+                command = new SQLiteCommand(create4, trainingsDB);
                 command.ExecuteNonQuery();
                 string insert2 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Burpees','" + path + "\\pirelli.png')";
                 string insert3 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Climbers','" + path + "\\pirelli.png')";
@@ -171,6 +175,12 @@ namespace Trainingsplaner
         private void organisationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmArbeitsplan frm = new FrmArbeitsplan();
+            frm.Show();
+        }
+
+        private void kalenderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTerminKalender frm = new FrmTerminKalender();
             frm.Show();
         }
     }

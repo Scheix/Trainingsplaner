@@ -14,8 +14,10 @@ namespace Trainingsplaner
     public partial class FrmUebungsDetails : Form
     {
         SQLiteConnection trainingsDB = new SQLiteConnection("Data Source=Trainingsplaner.sqlite;Version=3;");
-        public FrmUebungsDetails()
+        Form uebersichtRef;
+        public FrmUebungsDetails(Form uebersicht)
         {
+            this.uebersichtRef = uebersicht;
             InitializeComponent();
         }
         public string UebungsName { get; set; }
@@ -32,6 +34,23 @@ namespace Trainingsplaner
                 pctBoxUebung.Image = Image.FromFile("" + reader["bild"]);
             }
             trainingsDB.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Möchten Sie diese Uebung wirklich löschen?", "Löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                string delete = "delete from uebungen where name = '" + this.UebungsName + "'";
+                trainingsDB.Open();
+                SQLiteCommand command = new SQLiteCommand(delete, trainingsDB);
+                command.ExecuteNonQuery();
+                trainingsDB.Close();
+                if(uebersichtRef.GetType() == typeof(FrmUebersicht))
+                {
+                    ((FrmUebersicht)uebersichtRef).ReloadList();
+                }
+                this.Close();
+            }
         }
     }
 }

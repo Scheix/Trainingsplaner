@@ -36,13 +36,14 @@
             // 
             // btnHIIT
             // 
+            this.btnHIIT.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnHIIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHIIT.Location = new System.Drawing.Point(13, 12);
             this.btnHIIT.Name = "btnHIIT";
             this.btnHIIT.Size = new System.Drawing.Size(329, 67);
             this.btnHIIT.TabIndex = 0;
             this.btnHIIT.Text = "HIIT";
-            this.btnHIIT.UseVisualStyleBackColor = true;
+            this.btnHIIT.UseVisualStyleBackColor = false;
             this.btnHIIT.Click += new System.EventHandler(this.btnHIIT_Click);
             // 
             // btnLaufen
@@ -82,6 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(354, 307);
             this.Controls.Add(this.btnBenutzerdefiniert);
             this.Controls.Add(this.btnTechnik);

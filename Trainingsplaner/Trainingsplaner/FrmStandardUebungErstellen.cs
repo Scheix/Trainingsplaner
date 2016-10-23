@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,14 +32,29 @@ namespace Trainingsplaner
             string name = txtName.Text;
             string beschreibung = rboxBeschreibung.Text;
             trainingsDB.Open();
-            string insert = "insert into uebungen (kategorie, beschreibung, name, bild) values ('"+Kategorie+ "','" + beschreibung + "','" + name + "','" + destination + "')";
-            SQLiteCommand command = new SQLiteCommand(insert, trainingsDB);
-            command.ExecuteNonQuery();
-            trainingsDB.Close();
-            if (MessageBox.Show("Uebung wurde erfolgreich in die Datenbank gespeichert", "Einfuegen", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+            if (destination=="")
             {
-                this.Close();
-            } 
+                string insert = "insert into uebungen (kategorie, beschreibung, name, bild) values ('" + Kategorie + "','" + beschreibung + "','" + name + "','" + destination + "')";
+                SQLiteCommand command = new SQLiteCommand(insert, trainingsDB);
+                command.ExecuteNonQuery();
+                trainingsDB.Close();
+                if (MessageBox.Show("Uebung wurde erfolgreich in die Datenbank gespeichert", "Einfuegen", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                string path = ConfigurationManager.AppSettings["BasePath"];
+                string insert = "insert into uebungen (kategorie, beschreibung, name, bild) values ('"+path+"//pirelli.png')";
+                SQLiteCommand command = new SQLiteCommand(insert, trainingsDB);
+                command.ExecuteNonQuery();
+                trainingsDB.Close();
+                if (MessageBox.Show("Uebung wurde erfolgreich in die Datenbank gespeichert", "Einfuegen", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
         }
 
         private void btnBild_Click(object sender, EventArgs e)
@@ -46,7 +62,7 @@ namespace Trainingsplaner
             string path = ConfigurationManager.AppSettings["BasePath"];
             if (!System.IO.Directory.Exists(path))
             {
-                System.IO.Directory.CreateDirectory(path);
+                Directory.CreateDirectory(path);
             }
             OpenFileDialog fd = new OpenFileDialog();
             //fd.Filter = "Images only. |*.jpg, *.jpeg, *.png, *.gif;";
@@ -56,9 +72,29 @@ namespace Trainingsplaner
                 string filename = System.IO.Path.GetFileName(source);
                 //destination = "C:\\Trainingsplaner\\Fotos\\"+filename;
                 destination = path + "\\" + filename;
-                System.IO.File.Copy(source, destination, true);
+                //System.IO.File.Copy(source, destination, true);
+                //pictureBox1.Image = Image.FromFile(destination);
+                //pictureBox1.Image = ResizeImage(250,Image.FromFile(destination));
+                ResizeImage(250, Image.FromFile(source)).Save(destination);
                 pictureBox1.Image = Image.FromFile(destination);
             }            
+        }
+        private static Image ResizeImage(int newSize, Image originalImage)
+        {
+            if (originalImage.Width <= newSize)
+                newSize = originalImage.Width;
+
+            var newHeight = originalImage.Height * newSize / originalImage.Width;
+
+            if (newHeight > newSize)
+            {
+                // Resize with height instead
+                newSize = originalImage.Width * newSize / originalImage.Height;
+                newHeight = newSize;
+            }
+
+            return originalImage.GetThumbnailImage(newSize, newHeight, null, IntPtr.Zero);
+            //http://stackoverflow.com/questions/1922040/resize-an-image-c-sharp
         }
     }
 }
