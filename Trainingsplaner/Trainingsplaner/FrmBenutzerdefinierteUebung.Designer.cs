@@ -54,9 +54,6 @@
             this.lstZeichenBehaelter.UseCompatibleStateImageBehavior = false;
             this.lstZeichenBehaelter.View = System.Windows.Forms.View.Tile;
             this.lstZeichenBehaelter.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.lstZeichenBehaelter_ItemDrag);
-            this.lstZeichenBehaelter.DragDrop += new System.Windows.Forms.DragEventHandler(this.lstZeichenBehaelter_DragDrop);
-            this.lstZeichenBehaelter.DragEnter += new System.Windows.Forms.DragEventHandler(this.lstZeichenBehaelter_DragEnter);
-            this.lstZeichenBehaelter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstZeichenBehaelter_MouseDown);
             // 
             // imageList1
             // 

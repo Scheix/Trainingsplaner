@@ -22,7 +22,6 @@ namespace Trainingsplaner
 
         private void FrmUebersicht_Load(object sender, EventArgs e)
         {
-            //addImagesToListView();
             radiobuttonCheckedChanged();
         }
 
@@ -106,15 +105,31 @@ namespace Trainingsplaner
             trainingsDB.Open();
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
             SQLiteDataReader reader = command.ExecuteReader();
+            int counter = 0;
             while (reader.Read())
             {
-                string sth = "" + reader["bild"];
-                imageList1.Images.Add(Image.FromFile("" + reader["bild"]));
-                listView1.LargeImageList = imageList1;
-                listView1.SmallImageList = imageList1;
-                listView1.View = View.Details;
-                
-                listView1.Items.Add(new ListViewItem { ImageIndex = 0, Text = ""+reader["name"]});
+                if (select.Contains("zirkel"))
+                {
+                    listView1.Items.Add(new ListViewItem("" + reader["name"]));
+                }
+                else
+                {
+                    string sth = "" + reader["bild"];
+                    if (sth == "" || sth == null)
+                    {
+                        listView1.Items.Add(new ListViewItem("" + reader["name"]));
+                    }
+                    else
+                    {
+                        imageList1.Images.Add(Image.FromFile("" + reader["bild"]));
+                        listView1.LargeImageList = this.imageList1;
+                        listView1.SmallImageList = this.imageList1;
+                        listView1.View = View.List;
+
+                        listView1.Items.Add(new ListViewItem("" + reader["name"], counter));
+                        counter++;
+                    }
+                }
             }
             trainingsDB.Close();
         }
@@ -132,32 +147,6 @@ namespace Trainingsplaner
         private void btnBenutzerdefiniert_CheckedChanged(object sender, EventArgs e)
         {
             radiobuttonCheckedChanged();
-        }
-        private void addImagesToListView ()
-        {
-            DirectoryInfo dir = new DirectoryInfo(@"C:\Trainingsplaner\Fotos");
-
-            foreach (FileInfo file in dir.GetFiles())
-            {
-                try
-                {
-                    this.imageList1.Images.Add(Image.FromFile(file.FullName));
-                }
-                catch
-                {
-                    Console.WriteLine("This is not an image file");
-                }
-            }
-            this.listView1.View = View.LargeIcon;
-            this.imageList1.ImageSize = new Size(42, 42);
-            this.listView1.LargeImageList = this.imageList1;
-
-            for (int j = 0; j < this.imageList1.Images.Count; j++)
-            {
-                ListViewItem item = new ListViewItem();
-                item.ImageIndex = j;
-                this.listView1.Items.Add(item);
-            }
         }
     }
 }

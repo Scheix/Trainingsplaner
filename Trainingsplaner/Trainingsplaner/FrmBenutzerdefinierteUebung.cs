@@ -25,6 +25,7 @@ namespace Trainingsplaner
         {
             KeyPreview = true;
             addImagesToListView();
+            AddPBs(36);
         }
         private void AddPBs(int count)
         {
@@ -90,36 +91,9 @@ namespace Trainingsplaner
             }
         }
 
-        private void lstZeichenBehaelter_DragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.Text))
-                e.Effect = DragDropEffects.Copy;
-            else
-                e.Effect = DragDropEffects.None;
-        }
-
-        private void lstZeichenBehaelter_DragDrop(object sender, DragEventArgs e)
-        {
-            
-        }
-
-        private void lstZeichenBehaelter_MouseDown(object sender, MouseEventArgs e)
-        {
-            ListViewHitTestInfo htInfo = lstZeichenBehaelter.HitTest(e.X, e.Y);
-            if (htInfo != null)
-            {
-                if (htInfo.Item != null)
-                {
-                    ListViewItem lvi = htInfo.Item;
-                    string item = lvi.Text;
-                    panel1.DoDragDrop(item, DragDropEffects.Copy | DragDropEffects.Move);
-                }
-            }
-        }
-
         private void lstZeichenBehaelter_ItemDrag(object sender, ItemDragEventArgs e)
         {
-
+            lstZeichenBehaelter.DoDragDrop(e.Item, DragDropEffects.Move);
         }
 
         private void FrmBenutzerdefinierteUebung_KeyDown(object sender, KeyEventArgs e)
