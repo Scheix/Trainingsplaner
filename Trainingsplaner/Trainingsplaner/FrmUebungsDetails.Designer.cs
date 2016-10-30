@@ -78,13 +78,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.ForestGreen;
             this.ClientSize = new System.Drawing.Size(535, 441);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblBeschreibung);
             this.Controls.Add(this.pctBoxUebung);
             this.Controls.Add(this.lblTitel);
             this.Name = "FrmUebungsDetails";
-            this.Text = "FrmUebungsDetails";
+            this.Text = "Uebungs Details";
             this.Load += new System.EventHandler(this.FrmUebungsDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxUebung)).EndInit();
             this.ResumeLayout(false);

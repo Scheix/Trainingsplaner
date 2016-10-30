@@ -124,9 +124,9 @@ namespace Trainingsplaner
                         imageList1.Images.Add(Image.FromFile("" + reader["bild"]));
                         listView1.LargeImageList = this.imageList1;
                         listView1.SmallImageList = this.imageList1;
-                        listView1.View = View.List;
+                        listView1.View = View.Tile;
 
-                        listView1.Items.Add(new ListViewItem("" + reader["name"], counter));
+                        listView1.Items.Add(new ListViewItem("" + reader["name"], imageList1.Images.Count-1));
                         counter++;
                     }
                 }

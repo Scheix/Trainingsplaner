@@ -76,6 +76,10 @@ namespace Trainingsplaner
         {
             //FormatDates();
             LoadCalender();
+            DateTime d = DateTime.Now;
+            int month = d.Month;
+            monthCalendar1.ActiveMonth.Month = d.Month;
+            monthCalendar1.ActiveMonth.Year = d.Year;
         }
 
         private void monthCalendar1_DayDoubleClick(object sender, DayClickEventArgs e)
@@ -94,7 +98,7 @@ namespace Trainingsplaner
                     trainingsDB.Open();
                     DateItem d = new DateItem();
                     d.Date = new DateTime(year, month, day);
-                    d.BackColor1 = Color.Aqua;
+                    d.BackColor1 = Color.ForestGreen;
                     d.Text = value;
                     monthCalendar1.AddDateInfo(d);
                     string insert = "insert into termine (name, date) values ('"+value+"','"+date+"')";
@@ -187,7 +191,7 @@ namespace Trainingsplaner
                 int year = Convert.ToInt32(x[2]);
                 DateItem d = new DateItem();
                 d.Date = new DateTime(year, month, day);
-                d.BackColor1 = Color.Aqua;
+                d.BackColor1 = Color.ForestGreen;
                 d.Text = reader["name"].ToString(); ;
                 monthCalendar1.AddDateInfo(d);
             }

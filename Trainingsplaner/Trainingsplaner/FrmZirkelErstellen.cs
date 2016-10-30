@@ -120,7 +120,7 @@ namespace Trainingsplaner
             string value = "5 Runden";
             if (InputBox("Art der Durchführung", "Soll der Zirkel in Runden oder in einer bestimmten Anzahl an Minuten absolviert werden? (Eingabebeispiel: 5 Runden oder 10 Minuten)", ref value) == DialogResult.OK)
             {
-                if (value.EndsWith("Runden")|| value.EndsWith("Wiederholungen"))
+                if (value.EndsWith("Runden")|| value.EndsWith("Minuten"))
                 {
                     string insert = "insert into zirkel (name ,uebungen, dauer) values ('" + name + "','" + listOfExercises + "','" + value + "')";
                     SQLiteCommand command = new SQLiteCommand(insert, trainingsDB);

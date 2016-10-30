@@ -26,6 +26,11 @@ namespace Trainingsplaner
         private void Form1_Load(object sender, EventArgs e)
         {
             initializeDatabase();
+            //trainingsDB.Open();
+            //string delete = "delete from uebungen where name = 'lkjkl'";
+            //SQLiteCommand command = new SQLiteCommand(delete, trainingsDB);
+            //command.ExecuteNonQuery();
+            //trainingsDB.Close();
         }
         private void pctboxTrainingErstellen_Click(object sender, EventArgs e)
         {

@@ -46,7 +46,7 @@ namespace Trainingsplaner
             else
             {
                 string path = ConfigurationManager.AppSettings["BasePath"];
-                string insert = "insert into uebungen (kategorie, beschreibung, name, bild) values ('" + Kategorie + "','" + beschreibung + "','" + name + "','" + path+"//pirelli.png')";
+                string insert = "insert into uebungen (kategorie, beschreibung, name, bild) values ('" + Kategorie + "','" + beschreibung + "','" + name + "','" + path+ "//pirelli.png')";
                 SQLiteCommand command = new SQLiteCommand(insert, trainingsDB);
                 command.ExecuteNonQuery();
                 trainingsDB.Close();

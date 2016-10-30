@@ -36,7 +36,7 @@
             // 
             // btnHIIT
             // 
-            this.btnHIIT.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnHIIT.BackColor = System.Drawing.Color.ForestGreen;
             this.btnHIIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHIIT.Location = new System.Drawing.Point(13, 12);
             this.btnHIIT.Name = "btnHIIT";
@@ -48,42 +48,45 @@
             // 
             // btnLaufen
             // 
+            this.btnLaufen.BackColor = System.Drawing.Color.ForestGreen;
             this.btnLaufen.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLaufen.Location = new System.Drawing.Point(13, 86);
             this.btnLaufen.Name = "btnLaufen";
             this.btnLaufen.Size = new System.Drawing.Size(329, 67);
             this.btnLaufen.TabIndex = 1;
             this.btnLaufen.Text = "Laufen";
-            this.btnLaufen.UseVisualStyleBackColor = true;
+            this.btnLaufen.UseVisualStyleBackColor = false;
             this.btnLaufen.Click += new System.EventHandler(this.btnLaufen_Click);
             // 
             // btnTechnik
             // 
+            this.btnTechnik.BackColor = System.Drawing.Color.ForestGreen;
             this.btnTechnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTechnik.Location = new System.Drawing.Point(13, 159);
             this.btnTechnik.Name = "btnTechnik";
             this.btnTechnik.Size = new System.Drawing.Size(329, 67);
             this.btnTechnik.TabIndex = 2;
             this.btnTechnik.Text = "Technik";
-            this.btnTechnik.UseVisualStyleBackColor = true;
+            this.btnTechnik.UseVisualStyleBackColor = false;
             this.btnTechnik.Click += new System.EventHandler(this.btnTechnik_Click);
             // 
             // btnBenutzerdefiniert
             // 
+            this.btnBenutzerdefiniert.BackColor = System.Drawing.Color.ForestGreen;
             this.btnBenutzerdefiniert.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBenutzerdefiniert.Location = new System.Drawing.Point(13, 232);
             this.btnBenutzerdefiniert.Name = "btnBenutzerdefiniert";
             this.btnBenutzerdefiniert.Size = new System.Drawing.Size(329, 67);
             this.btnBenutzerdefiniert.TabIndex = 3;
             this.btnBenutzerdefiniert.Text = "Benutzerdefiniert";
-            this.btnBenutzerdefiniert.UseVisualStyleBackColor = true;
+            this.btnBenutzerdefiniert.UseVisualStyleBackColor = false;
             this.btnBenutzerdefiniert.Click += new System.EventHandler(this.btnBenutzerdefiniert_Click);
             // 
             // FrmNeueUebung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackColor = System.Drawing.Color.ForestGreen;
             this.ClientSize = new System.Drawing.Size(354, 307);
             this.Controls.Add(this.btnBenutzerdefiniert);
             this.Controls.Add(this.btnTechnik);

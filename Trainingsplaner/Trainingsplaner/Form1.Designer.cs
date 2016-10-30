@@ -50,7 +50,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(119)))), ((int)(((byte)(24)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.ForestGreen;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dateiToolStripMenuItem,
             this.bearbeitenToolStripMenuItem,
@@ -150,7 +150,7 @@
             // 
             this.btnSuchen.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuchen.Location = new System.Drawing.Point(833, 8);
+            this.btnSuchen.Location = new System.Drawing.Point(836, 8);
             this.btnSuchen.Name = "btnSuchen";
             this.btnSuchen.Size = new System.Drawing.Size(116, 23);
             this.btnSuchen.TabIndex = 5;
@@ -162,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(119)))), ((int)(((byte)(24)))));
+            this.BackColor = System.Drawing.Color.ForestGreen;
             this.ClientSize = new System.Drawing.Size(961, 583);
             this.Controls.Add(this.btnSuchen);
             this.Controls.Add(this.pctboxUebersicht);

@@ -30,11 +30,11 @@
         {
             this.listView1 = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rbtnAufwaermen = new System.Windows.Forms.RadioButton();
-            this.rbtnTechnik = new System.Windows.Forms.RadioButton();
-            this.rbtnAusdauer = new System.Windows.Forms.RadioButton();
-            this.rbtnKraft = new System.Windows.Forms.RadioButton();
             this.rbtnLocker = new System.Windows.Forms.RadioButton();
+            this.rbtnKraft = new System.Windows.Forms.RadioButton();
+            this.rbtnAusdauer = new System.Windows.Forms.RadioButton();
+            this.rbtnTechnik = new System.Windows.Forms.RadioButton();
+            this.rbtnAufwaermen = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,17 +61,41 @@
             this.panel1.Size = new System.Drawing.Size(520, 21);
             this.panel1.TabIndex = 2;
             // 
-            // rbtnAufwaermen
+            // rbtnLocker
             // 
-            this.rbtnAufwaermen.AutoSize = true;
-            this.rbtnAufwaermen.Location = new System.Drawing.Point(4, 4);
-            this.rbtnAufwaermen.Name = "rbtnAufwaermen";
-            this.rbtnAufwaermen.Size = new System.Drawing.Size(84, 17);
-            this.rbtnAufwaermen.TabIndex = 0;
-            this.rbtnAufwaermen.TabStop = true;
-            this.rbtnAufwaermen.Text = "Aufwaermen";
-            this.rbtnAufwaermen.UseVisualStyleBackColor = true;
-            this.rbtnAufwaermen.CheckedChanged += new System.EventHandler(this.rbtnAufwaermen_CheckedChanged);
+            this.rbtnLocker.AutoSize = true;
+            this.rbtnLocker.Location = new System.Drawing.Point(462, 4);
+            this.rbtnLocker.Name = "rbtnLocker";
+            this.rbtnLocker.Size = new System.Drawing.Size(58, 17);
+            this.rbtnLocker.TabIndex = 4;
+            this.rbtnLocker.TabStop = true;
+            this.rbtnLocker.Text = "Locker";
+            this.rbtnLocker.UseVisualStyleBackColor = true;
+            this.rbtnLocker.CheckedChanged += new System.EventHandler(this.rbtnLocker_CheckedChanged);
+            // 
+            // rbtnKraft
+            // 
+            this.rbtnKraft.AutoSize = true;
+            this.rbtnKraft.Location = new System.Drawing.Point(367, 4);
+            this.rbtnKraft.Name = "rbtnKraft";
+            this.rbtnKraft.Size = new System.Drawing.Size(47, 17);
+            this.rbtnKraft.TabIndex = 3;
+            this.rbtnKraft.TabStop = true;
+            this.rbtnKraft.Text = "Kraft";
+            this.rbtnKraft.UseVisualStyleBackColor = true;
+            this.rbtnKraft.CheckedChanged += new System.EventHandler(this.rbtnKraft_CheckedChanged);
+            // 
+            // rbtnAusdauer
+            // 
+            this.rbtnAusdauer.AutoSize = true;
+            this.rbtnAusdauer.Location = new System.Drawing.Point(248, 4);
+            this.rbtnAusdauer.Name = "rbtnAusdauer";
+            this.rbtnAusdauer.Size = new System.Drawing.Size(70, 17);
+            this.rbtnAusdauer.TabIndex = 2;
+            this.rbtnAusdauer.TabStop = true;
+            this.rbtnAusdauer.Text = "Ausdauer";
+            this.rbtnAusdauer.UseVisualStyleBackColor = true;
+            this.rbtnAusdauer.CheckedChanged += new System.EventHandler(this.rbtnAusdauer_CheckedChanged);
             // 
             // rbtnTechnik
             // 
@@ -86,46 +110,23 @@
             this.rbtnTechnik.UseVisualStyleBackColor = true;
             this.rbtnTechnik.CheckedChanged += new System.EventHandler(this.rbtnTechnik_CheckedChanged);
             // 
-            // rbtnAusdauer
+            // rbtnAufwaermen
             // 
-            this.rbtnAusdauer.AutoSize = true;
-            this.rbtnAusdauer.Location = new System.Drawing.Point(248, 4);
-            this.rbtnAusdauer.Name = "rbtnAusdauer";
-            this.rbtnAusdauer.Size = new System.Drawing.Size(70, 17);
-            this.rbtnAusdauer.TabIndex = 2;
-            this.rbtnAusdauer.TabStop = true;
-            this.rbtnAusdauer.Text = "Ausdauer";
-            this.rbtnAusdauer.UseVisualStyleBackColor = true;
-            this.rbtnAusdauer.CheckedChanged += new System.EventHandler(this.rbtnAusdauer_CheckedChanged);
-            // 
-            // rbtnKraft
-            // 
-            this.rbtnKraft.AutoSize = true;
-            this.rbtnKraft.Location = new System.Drawing.Point(367, 4);
-            this.rbtnKraft.Name = "rbtnKraft";
-            this.rbtnKraft.Size = new System.Drawing.Size(47, 17);
-            this.rbtnKraft.TabIndex = 3;
-            this.rbtnKraft.TabStop = true;
-            this.rbtnKraft.Text = "Kraft";
-            this.rbtnKraft.UseVisualStyleBackColor = true;
-            this.rbtnKraft.CheckedChanged += new System.EventHandler(this.rbtnKraft_CheckedChanged);
-            // 
-            // rbtnLocker
-            // 
-            this.rbtnLocker.AutoSize = true;
-            this.rbtnLocker.Location = new System.Drawing.Point(462, 4);
-            this.rbtnLocker.Name = "rbtnLocker";
-            this.rbtnLocker.Size = new System.Drawing.Size(58, 17);
-            this.rbtnLocker.TabIndex = 4;
-            this.rbtnLocker.TabStop = true;
-            this.rbtnLocker.Text = "Locker";
-            this.rbtnLocker.UseVisualStyleBackColor = true;
-            this.rbtnLocker.CheckedChanged += new System.EventHandler(this.rbtnLocker_CheckedChanged);
+            this.rbtnAufwaermen.AutoSize = true;
+            this.rbtnAufwaermen.Location = new System.Drawing.Point(4, 4);
+            this.rbtnAufwaermen.Name = "rbtnAufwaermen";
+            this.rbtnAufwaermen.Size = new System.Drawing.Size(84, 17);
+            this.rbtnAufwaermen.TabIndex = 0;
+            this.rbtnAufwaermen.TabStop = true;
+            this.rbtnAufwaermen.Text = "Aufwaermen";
+            this.rbtnAufwaermen.UseVisualStyleBackColor = true;
+            this.rbtnAufwaermen.CheckedChanged += new System.EventHandler(this.rbtnAufwaermen_CheckedChanged);
             // 
             // FrmTrainingshistorie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.ForestGreen;
             this.ClientSize = new System.Drawing.Size(545, 487);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView1);

@@ -60,7 +60,7 @@ namespace Trainingsplaner
                 Font titlefont = FontFactory.GetFont("Arial");
                 titlefont.Size = 30;
                 titlefont.SetStyle("Bold");
-                titlefont.SetColor(0, 0, 128);
+                titlefont.SetColor(34, 139, 34);
 
                 Paragraph pr = new Paragraph("Training: " + this.TrainingsName, titlefont);
                 doc.Add(pr);
