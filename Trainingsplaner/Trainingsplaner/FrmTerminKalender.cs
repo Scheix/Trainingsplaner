@@ -16,9 +16,15 @@ namespace Trainingsplaner
     public partial class FrmTerminKalender : Form
     {
         SQLiteConnection trainingsDB = new SQLiteConnection("Data Source=Trainingsplaner.sqlite;Version=3;");
-        public FrmTerminKalender()
+        Form menuRef;
+        public FrmTerminKalender(Form menu)
         {
             InitializeComponent();
+            this.menuRef = menu;
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenUebersicht = false;
+            }
         }
 
         private void monthCalendar1_DayQueryInfo(object sender, DayQueryInfoEventArgs e)
@@ -196,6 +202,14 @@ namespace Trainingsplaner
                 monthCalendar1.AddDateInfo(d);
             }
             trainingsDB.Close();
+        }
+
+        private void FrmTerminKalender_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenUebersicht = true;
+            }
         }
         //public static DialogResult InfoBox(List<string> date ,List<string> values)
         //{

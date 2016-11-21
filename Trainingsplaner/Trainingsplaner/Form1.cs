@@ -16,6 +16,12 @@ namespace Trainingsplaner
 {
     public partial class Form1 : Form
     {
+        public bool OpenTrainingErstellen { get; set; }
+        public bool OpenTrainings { get; set; }
+        public bool OpenNeueUebung { get; set; }
+        public bool OpenUebersicht { get; set; }
+        public bool OpenSuchen { get; set; }
+        public bool OpenKalender { get; set; }
         // Facebook anbindung
         SQLiteConnection trainingsDB = new SQLiteConnection("Data Source=Trainingsplaner.sqlite;Version=3;");
         public Form1()
@@ -26,6 +32,12 @@ namespace Trainingsplaner
         private void Form1_Load(object sender, EventArgs e)
         {
             initializeDatabase();
+            OpenTrainingErstellen = true;
+            OpenNeueUebung = true;
+            OpenSuchen = true;
+            OpenTrainings = true;
+            OpenUebersicht = true;
+            OpenKalender = true;
             //trainingsDB.Open();
             //string delete = "delete from uebungen where name = 'lkjkl'";
             //SQLiteCommand command = new SQLiteCommand(delete, trainingsDB);
@@ -34,26 +46,39 @@ namespace Trainingsplaner
         }
         private void pctboxTrainingErstellen_Click(object sender, EventArgs e)
         {
-            FrmErstellauswahl frm = new FrmErstellauswahl();
-            frm.Show();
+            if (OpenTrainingErstellen == true)
+            {
+                FrmErstellauswahl frm = new FrmErstellauswahl(this);
+                frm.Show();
+            }
         }
 
         private void pctboxTrainings_Click(object sender, EventArgs e)
         {
-            FrmTrainingshistorie frm = new FrmTrainingshistorie();
-            frm.Show();
+            if (OpenTrainings == true)
+            {
+                FrmTrainingshistorie frm = new FrmTrainingshistorie(this);
+                frm.Show();
+            }
         }
 
         private void pctboxNeueUebung_Click(object sender, EventArgs e)
         {
-            FrmNeueUebung frm = new FrmNeueUebung();
-            frm.Show();
+            if (OpenNeueUebung == true)
+            {
+                FrmNeueUebung frm = new FrmNeueUebung(this);
+                frm.Show();
+            }
         }
 
         private void pctboxUebersicht_Click(object sender, EventArgs e)
         {
-            FrmUebersicht frm = new FrmUebersicht();
-            frm.Show();
+            // funktioniert nicht wenn ich hier das mit open mache --> bei den unteren Forms schon, hier hab ich es schon gemacht
+            if (OpenUebersicht == true)
+            {
+                FrmUebersicht frm = new FrmUebersicht(this);
+                frm.Show();
+            }
         }
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -173,8 +198,11 @@ namespace Trainingsplaner
 
         private void btnSuchen_Click(object sender, EventArgs e)
         {
-            FrmSuche frm = new FrmSuche();
-            frm.Show();
+            if (OpenSuchen == true)
+            {
+                FrmSuche frm = new FrmSuche(this);
+                frm.Show();
+            }
         }
 
         private void organisationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -185,8 +213,11 @@ namespace Trainingsplaner
 
         private void kalenderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmTerminKalender frm = new FrmTerminKalender();
-            frm.Show();
+            if (OpenKalender == true)
+            {
+                FrmTerminKalender frm = new FrmTerminKalender(this);
+                frm.Show();
+            } 
         }
     }
 }

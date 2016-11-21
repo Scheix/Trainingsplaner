@@ -63,11 +63,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackColor = System.Drawing.Color.ForestGreen;
             this.ClientSize = new System.Drawing.Size(539, 361);
             this.Controls.Add(this.monthCalendar1);
             this.Name = "FrmTerminKalender";
             this.Text = "FrmTerminKalender";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmTerminKalender_FormClosed);
             this.Load += new System.EventHandler(this.FrmTerminKalender_Load);
             this.ResumeLayout(false);
 

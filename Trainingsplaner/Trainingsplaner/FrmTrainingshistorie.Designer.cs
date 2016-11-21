@@ -132,6 +132,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "FrmTrainingshistorie";
             this.Text = "Trainingshistorie";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmTrainingshistorie_FormClosed);
             this.Load += new System.EventHandler(this.FrmTrainingshistorie_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

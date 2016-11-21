@@ -67,8 +67,10 @@
             this.Controls.Add(this.lstResults);
             this.Controls.Add(this.txtSuche);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FrmSuche";
             this.Text = "Suche";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSuche_FormClosed);
             this.Load += new System.EventHandler(this.FrmSuche_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -19,6 +19,10 @@ namespace Trainingsplaner
         {
             this.uebersichtRef = uebersicht;
             InitializeComponent();
+            if (uebersichtRef.GetType() == typeof(FrmUebersicht))
+            {
+                ((FrmUebersicht)uebersichtRef).Open = false;
+            }
         }
         public string UebungsName { get; set; }
         private void FrmUebungsDetails_Load(object sender, EventArgs e)
@@ -50,6 +54,14 @@ namespace Trainingsplaner
                     ((FrmUebersicht)uebersichtRef).ReloadList();
                 }
                 this.Close();
+            }
+        }
+
+        private void FrmUebungsDetails_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (uebersichtRef.GetType() == typeof(FrmUebersicht))
+            {
+                ((FrmUebersicht)uebersichtRef).Open = true;
             }
         }
     }

@@ -66,6 +66,8 @@
             this.Controls.Add(this.btnTraining);
             this.Name = "FrmErstellauswahl";
             this.Text = "FrmErstellauswahl";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmErstellauswahl_FormClosed);
+            this.Load += new System.EventHandler(this.FrmErstellauswahl_Load);
             this.ResumeLayout(false);
 
         }

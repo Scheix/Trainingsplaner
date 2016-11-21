@@ -86,6 +86,7 @@
             this.Controls.Add(this.lblTitel);
             this.Name = "FrmUebungsDetails";
             this.Text = "Uebungs Details";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmUebungsDetails_FormClosed);
             this.Load += new System.EventHandler(this.FrmUebungsDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxUebung)).EndInit();
             this.ResumeLayout(false);

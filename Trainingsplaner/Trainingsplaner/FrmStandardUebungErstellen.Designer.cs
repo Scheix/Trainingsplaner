@@ -130,6 +130,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmStandardUebungErstellen";
             this.Text = "Standarduebung erstellen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmStandardUebungErstellen_FormClosed);
             this.Load += new System.EventHandler(this.FrmStandardUebungErstellen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

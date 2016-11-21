@@ -15,9 +15,17 @@ namespace Trainingsplaner
     public partial class FrmUebersicht : Form
     {
         SQLiteConnection trainingsDB = new SQLiteConnection("Data Source=Trainingsplaner.sqlite;Version=3;");
-        public FrmUebersicht()
+        public bool Open { get; set; }
+        Form menuRef;
+        public FrmUebersicht(Form menu)
         {
             InitializeComponent();
+            menuRef = menu;
+            this.Open = true;
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenUebersicht = false;
+            }
         }
 
         private void FrmUebersicht_Load(object sender, EventArgs e)
@@ -35,25 +43,48 @@ namespace Trainingsplaner
                 {
                     if (htInfo.Item != null)
                     {
-                        ListViewItem lvi = htInfo.Item;
-                        string item = lvi.Text;
-                        FrmZirkelDetails frm = new FrmZirkelDetails(this);
-                        frm.ZirkelName = item;
-                        frm.Show();
+                        if (Open == true)
+                        {
+                            ListViewItem lvi = htInfo.Item;
+                            string item = lvi.Text;
+                            FrmZirkelDetails frm = new FrmZirkelDetails(this);
+                            frm.ZirkelName = item;
+                            frm.Show();
+                        } 
                     }
                 }
             }
-            else
+            else if(btnBenutzerdefiniert.Checked)
             {
                 if (htInfo != null)
                 {
                     if (htInfo.Item != null)
                     {
-                        ListViewItem lvi = htInfo.Item;
-                        string item = lvi.Text;
-                        FrmUebungsDetails frm = new FrmUebungsDetails(this);
-                        frm.UebungsName = item;
-                        frm.Show();
+                        if (Open == true)
+                        {
+                            ListViewItem lvi = htInfo.Item;
+                            string item = lvi.Text;
+                            FrmBenutzerdefiniertDetails frm = new FrmBenutzerdefiniertDetails(this);
+                            frm.UebungsName = item;
+                            frm.Show();
+                        }  
+                    }
+                }
+            }
+            else 
+            {
+                if (htInfo != null)
+                {
+                    if (htInfo.Item != null)
+                    {
+                        if (Open == true)
+                        {
+                            ListViewItem lvi = htInfo.Item;
+                            string item = lvi.Text;
+                            FrmUebungsDetails frm = new FrmUebungsDetails(this);
+                            frm.UebungsName = item;
+                            frm.Show();
+                        }
                     }
                 }
             }        
@@ -110,6 +141,7 @@ namespace Trainingsplaner
             {
                 if (select.Contains("zirkel"))
                 {
+                    listView1.View = View.List;
                     listView1.Items.Add(new ListViewItem("" + reader["name"]));
                 }
                 else
@@ -147,6 +179,14 @@ namespace Trainingsplaner
         private void btnBenutzerdefiniert_CheckedChanged(object sender, EventArgs e)
         {
             radiobuttonCheckedChanged();
+        }
+
+        private void FrmUebersicht_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenUebersicht = true;
+            }
         }
     }
 }

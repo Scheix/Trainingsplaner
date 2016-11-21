@@ -75,6 +75,7 @@
             this.Controls.Add(this.lstDetails);
             this.Name = "FrmZirkelDetails";
             this.Text = "Zirkel Details";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmZirkelDetails_FormClosed);
             this.Load += new System.EventHandler(this.FrmZirkelDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

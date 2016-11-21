@@ -34,8 +34,8 @@
             this.lstZeichenBehaelter = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -78,6 +78,14 @@
             this.panel1.Size = new System.Drawing.Size(742, 667);
             this.panel1.TabIndex = 8;
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(916, 321);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(194, 32);
+            this.textBox1.TabIndex = 13;
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -88,14 +96,6 @@
             this.button1.Text = "Speichern";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(916, 321);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 32);
-            this.textBox1.TabIndex = 13;
             // 
             // label1
             // 
@@ -149,6 +149,7 @@
             this.Controls.Add(this.lstZeichenBehaelter);
             this.Name = "FrmBenutzerdefinierteUebung";
             this.Text = "Uebung erstellen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmBenutzerdefinierteUebung_FormClosed);
             this.Load += new System.EventHandler(this.FrmBenutzerdefinierteUebung_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmBenutzerdefinierteUebung_KeyDown);
             this.panel1.ResumeLayout(false);

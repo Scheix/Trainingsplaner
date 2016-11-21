@@ -12,9 +12,15 @@ namespace Trainingsplaner
 {
     public partial class FrmErstellauswahl : Form
     {
-        public FrmErstellauswahl()
+        Form menuRef;
+        public FrmErstellauswahl(Form menu)
         {
             InitializeComponent();
+            this.menuRef = menu;
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenTrainingErstellen = false;
+            }
         }
 
         private void btnTraining_Click(object sender, EventArgs e)
@@ -29,6 +35,19 @@ namespace Trainingsplaner
             FrmZirkelErstellen frm = new FrmZirkelErstellen();
             frm.Show();
             this.Close();
+        }
+
+        private void FrmErstellauswahl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmErstellauswahl_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenTrainingErstellen = true;
+            }
         }
     }
 }

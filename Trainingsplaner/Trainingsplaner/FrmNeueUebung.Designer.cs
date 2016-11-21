@@ -94,6 +94,7 @@
             this.Controls.Add(this.btnHIIT);
             this.Name = "FrmNeueUebung";
             this.Text = "Neue Uebung";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmNeueUebung_FormClosed);
             this.Load += new System.EventHandler(this.FrmNeueUebung_Load);
             this.ResumeLayout(false);
 

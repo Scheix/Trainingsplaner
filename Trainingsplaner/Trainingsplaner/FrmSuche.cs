@@ -14,9 +14,15 @@ namespace Trainingsplaner
     public partial class FrmSuche : Form
     {
         SQLiteConnection trainingsDB = new SQLiteConnection("Data Source=Trainingsplaner.sqlite;Version=3;");
-        public FrmSuche()
+        Form menuRef;
+        public FrmSuche(Form menu)
         {
             InitializeComponent();
+            this.menuRef = menu;
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenSuchen = false;
+            }
         }
 
         private void FrmSuche_Load(object sender, EventArgs e)
@@ -116,6 +122,14 @@ namespace Trainingsplaner
                     }
                     trainingsDB.Close();
                 }
+            }
+        }
+
+        private void FrmSuche_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenUebersicht = true;
             }
         }
     }

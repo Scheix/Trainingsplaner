@@ -22,6 +22,10 @@ namespace Trainingsplaner
         {
             this.uebersichtRef = uebersicht;
             InitializeComponent();
+            if (uebersichtRef.GetType() == typeof(FrmTrainingshistorie))
+            {
+                ((FrmTrainingshistorie)uebersichtRef).Open = false;
+            }
         }
         public string TrainingsName { get; set; }
 
@@ -160,6 +164,14 @@ namespace Trainingsplaner
                     ((FrmTrainingshistorie)uebersichtRef).ReloadList();
                 }
                 this.Close();
+            }
+        }
+
+        private void FrmTrainingsDetails_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (uebersichtRef.GetType() == typeof(FrmTrainingshistorie))
+            {
+                ((FrmTrainingshistorie)uebersichtRef).Open = true;
             }
         }
     }

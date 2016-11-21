@@ -76,6 +76,7 @@
             this.Controls.Add(this.lstDetails);
             this.Name = "FrmTrainingsDetails";
             this.Text = "Trainings Details";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmTrainingsDetails_FormClosed);
             this.Load += new System.EventHandler(this.FrmTrainingsDetails_Load);
             this.ResumeLayout(false);
 

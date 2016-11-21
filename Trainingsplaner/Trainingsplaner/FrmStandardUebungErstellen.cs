@@ -18,9 +18,15 @@ namespace Trainingsplaner
         SQLiteConnection trainingsDB = new SQLiteConnection("Data Source=Trainingsplaner.sqlite;Version=3;");
         string destination = "";
         public string Kategorie { get; set; }
-        public FrmStandardUebungErstellen()
+        Form neueUebungRef;
+        public FrmStandardUebungErstellen(Form neueUebung)
         {
             InitializeComponent();
+            this.neueUebungRef = neueUebung;
+            if (neueUebungRef.GetType() == typeof(FrmNeueUebung))
+            {
+                ((FrmNeueUebung)neueUebungRef).Open = false;
+            }
         }
 
         private void FrmStandardUebungErstellen_Load(object sender, EventArgs e)
@@ -65,12 +71,10 @@ namespace Trainingsplaner
                 Directory.CreateDirectory(path);
             }
             OpenFileDialog fd = new OpenFileDialog();
-            //fd.Filter = "Images only. |*.jpg, *.jpeg, *.png, *.gif;";
             if (fd.ShowDialog() == DialogResult.OK)
             {
                 string source = fd.FileName;
                 string filename = System.IO.Path.GetFileName(source);
-                //destination = "C:\\Trainingsplaner\\Fotos\\"+filename;
                 destination = path + "\\" + filename;
                 //System.IO.File.Copy(source, destination, true);
                 //pictureBox1.Image = Image.FromFile(destination);
@@ -95,6 +99,14 @@ namespace Trainingsplaner
 
             return originalImage.GetThumbnailImage(newSize, newHeight, null, IntPtr.Zero);
             //http://stackoverflow.com/questions/1922040/resize-an-image-c-sharp
+        }
+
+        private void FrmStandardUebungErstellen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (neueUebungRef.GetType() == typeof(FrmNeueUebung))
+            {
+                ((FrmNeueUebung)neueUebungRef).Open = true;
+            }
         }
     }
 }

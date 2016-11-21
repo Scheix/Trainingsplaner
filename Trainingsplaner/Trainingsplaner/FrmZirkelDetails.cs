@@ -20,6 +20,11 @@ namespace Trainingsplaner
         {
             this.uebersichtRef = uebersicht;
             InitializeComponent();
+            if (uebersichtRef.GetType() == typeof(FrmUebersicht))
+            {
+                ((FrmUebersicht)uebersichtRef).Open = false;
+            }
+
         }
 
         private void FrmZirkelDetails_Load(object sender, EventArgs e)
@@ -82,6 +87,14 @@ namespace Trainingsplaner
                     ((FrmUebersicht)uebersichtRef).ReloadList();
                 }
                 this.Close();
+            }
+        }
+
+        private void FrmZirkelDetails_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (uebersichtRef.GetType() == typeof(FrmUebersicht))
+            {
+                ((FrmUebersicht)uebersichtRef).Open = true;
             }
         }
     }

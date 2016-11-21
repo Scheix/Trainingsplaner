@@ -12,9 +12,17 @@ namespace Trainingsplaner
 {
     public partial class FrmNeueUebung : Form
     {
-        public FrmNeueUebung()
+        public bool Open { get; set; }
+        Form menuRef;
+        public FrmNeueUebung(Form menu)
         {
             InitializeComponent();
+            Open = true;
+            this.menuRef = menu;
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenNeueUebung = false;
+            }
         }
 
         private void FrmNeueUebung_Load(object sender, EventArgs e)
@@ -24,29 +32,49 @@ namespace Trainingsplaner
 
         private void btnHIIT_Click(object sender, EventArgs e)
         {
-            FrmStandardUebungErstellen frm = new FrmStandardUebungErstellen();
-            frm.Kategorie = "HIIT";
-            frm.Show();
+            if (Open == true)
+            {
+                FrmStandardUebungErstellen frm = new FrmStandardUebungErstellen(this);
+                frm.Kategorie = "HIIT";
+                frm.Show();
+            }
         }
 
         private void btnLaufen_Click(object sender, EventArgs e)
         {
-            FrmStandardUebungErstellen frm = new FrmStandardUebungErstellen();
-            frm.Kategorie = "Laufen";
-            frm.Show();
+            if (Open == true)
+            {
+                FrmStandardUebungErstellen frm = new FrmStandardUebungErstellen(this);
+                frm.Kategorie = "Laufen";
+                frm.Show();
+            } 
         }
 
         private void btnTechnik_Click(object sender, EventArgs e)
         {
-            FrmStandardUebungErstellen frm = new FrmStandardUebungErstellen();
-            frm.Kategorie = "Technik";
-            frm.Show();
+            if (Open == true)
+            {
+                FrmStandardUebungErstellen frm = new FrmStandardUebungErstellen(this);
+                frm.Kategorie = "Technik";
+                frm.Show();
+            }
         }
 
         private void btnBenutzerdefiniert_Click(object sender, EventArgs e)
         {
-            FrmBenutzerdefinierteUebung frm = new FrmBenutzerdefinierteUebung();
-            frm.Show();
+            if (Open == true)
+            {
+                FrmBenutzerdefinierteUebung frm = new FrmBenutzerdefinierteUebung(this);
+                frm.Show();
+            }     
+        }
+
+        private void FrmNeueUebung_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenNeueUebung = true;
+            }
         }
     }
 }

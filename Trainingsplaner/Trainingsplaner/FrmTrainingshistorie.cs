@@ -14,9 +14,17 @@ namespace Trainingsplaner
     public partial class FrmTrainingshistorie : Form
     {
         SQLiteConnection trainingsDB = new SQLiteConnection("Data Source=Trainingsplaner.sqlite;Version=3;");
-        public FrmTrainingshistorie()
+        public bool Open { get; set; }
+        Form menuRef;
+        public FrmTrainingshistorie(Form menu)
         {
             InitializeComponent();
+            this.menuRef = menu;
+            this.Open = true;
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenTrainings = false;
+            }
         }
 
         private void FrmTrainingshistorie_Load(object sender, EventArgs e)
@@ -41,11 +49,14 @@ namespace Trainingsplaner
             {
                 if (htInfo.Item != null)
                 {
-                    ListViewItem lvi = htInfo.Item;
-                    string item = lvi.Text;
-                    FrmTrainingsDetails frm = new FrmTrainingsDetails(this);
-                    frm.TrainingsName = item;
-                    frm.Show();
+                    if (Open == true)
+                    {
+                        ListViewItem lvi = htInfo.Item;
+                        string item = lvi.Text;
+                        FrmTrainingsDetails frm = new FrmTrainingsDetails(this);
+                        frm.TrainingsName = item;
+                        frm.Show();
+                    }  
                 }
             }
         }
@@ -110,6 +121,14 @@ namespace Trainingsplaner
         public void ReloadList()
         {
             radiobuttonCheckedChanged();
+        }
+
+        private void FrmTrainingshistorie_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (menuRef.GetType() == typeof(Form1))
+            {
+                ((Form1)menuRef).OpenTrainings = true;
+            }
         }
     }
 }

@@ -12,6 +12,14 @@ using Newtonsoft.Json;
 
 namespace Trainingsplaner
 {
+    /*
+     * Konstante definieren, true oder false, je nachdem ob jede Übung so oft wie möglich in Zeitintervall gemacht werden sollte
+     * oder false wenn wie gehabt ganzes WO auf Zeit oder Runden
+     * Bei ersten Eintrag in die ListView überprüfen ob Benutzer zuerst genanntes will, wenn ja wird die Konstante auf true 
+     * gesetzt, dies muss dann bei den HIIT Übungen überprüft werden als auch bei der Nachfrage ganz zum Schluss
+     * Selbsterklärender einfacher String muss in Feld "dauer" von Übungen eingetragen werden, um es später noch genau 
+     * identifizieren zu können
+     */
     public partial class FrmZirkelErstellen : Form
     {
         SQLiteConnection trainingsDB = new SQLiteConnection("Data Source=Trainingsplaner.sqlite;Version=3;");
