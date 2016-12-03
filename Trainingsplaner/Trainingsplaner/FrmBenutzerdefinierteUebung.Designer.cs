@@ -57,7 +57,7 @@
             this.lstZeichenBehaelter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstZeichenBehaelter.Location = new System.Drawing.Point(12, 36);
             this.lstZeichenBehaelter.Name = "lstZeichenBehaelter";
-            this.lstZeichenBehaelter.Size = new System.Drawing.Size(250, 640);
+            this.lstZeichenBehaelter.Size = new System.Drawing.Size(250, 693);
             this.lstZeichenBehaelter.TabIndex = 6;
             this.lstZeichenBehaelter.UseCompatibleStateImageBehavior = false;
             this.lstZeichenBehaelter.View = System.Windows.Forms.View.Tile;
@@ -71,12 +71,19 @@
             // 
             // panel1
             // 
+            this.panel1.AllowDrop = true;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(269, 9);
+            this.panel1.Location = new System.Drawing.Point(274, 21);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(742, 667);
             this.panel1.TabIndex = 8;
+            this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.PB_DragDrop);
+            this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.PB_DragEnter);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // textBox1
             // 
@@ -89,7 +96,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1022, 644);
+            this.button1.Location = new System.Drawing.Point(1022, 656);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(320, 32);
             this.button1.TabIndex = 11;
@@ -127,9 +134,10 @@
             // 
             // rtbBeschreibung
             // 
+            this.rtbBeschreibung.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbBeschreibung.Location = new System.Drawing.Point(1022, 122);
             this.rtbBeschreibung.Name = "rtbBeschreibung";
-            this.rtbBeschreibung.Size = new System.Drawing.Size(320, 516);
+            this.rtbBeschreibung.Size = new System.Drawing.Size(320, 528);
             this.rtbBeschreibung.TabIndex = 15;
             this.rtbBeschreibung.Text = "";
             // 
@@ -138,7 +146,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.ForestGreen;
-            this.ClientSize = new System.Drawing.Size(1354, 682);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.rtbBeschreibung);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
@@ -149,6 +157,7 @@
             this.Controls.Add(this.lstZeichenBehaelter);
             this.Name = "FrmBenutzerdefinierteUebung";
             this.Text = "Uebung erstellen";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmBenutzerdefinierteUebung_FormClosed);
             this.Load += new System.EventHandler(this.FrmBenutzerdefinierteUebung_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmBenutzerdefinierteUebung_KeyDown);

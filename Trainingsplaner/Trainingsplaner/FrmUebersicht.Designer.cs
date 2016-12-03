@@ -136,6 +136,7 @@
             this.ClientSize = new System.Drawing.Size(578, 536);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView1);
+            this.MaximizeBox = false;
             this.Name = "FrmUebersicht";
             this.Text = "Uebungs-Uebersicht";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmUebersicht_FormClosed);

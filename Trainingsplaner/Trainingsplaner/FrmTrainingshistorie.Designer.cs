@@ -130,6 +130,7 @@
             this.ClientSize = new System.Drawing.Size(545, 487);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView1);
+            this.MaximizeBox = false;
             this.Name = "FrmTrainingshistorie";
             this.Text = "Trainingshistorie";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmTrainingshistorie_FormClosed);

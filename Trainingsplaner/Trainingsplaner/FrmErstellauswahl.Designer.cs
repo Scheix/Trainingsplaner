@@ -64,6 +64,7 @@
             this.ClientSize = new System.Drawing.Size(284, 359);
             this.Controls.Add(this.btnZirkel);
             this.Controls.Add(this.btnTraining);
+            this.MinimizeBox = false;
             this.Name = "FrmErstellauswahl";
             this.Text = "FrmErstellauswahl";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmErstellauswahl_FormClosed);

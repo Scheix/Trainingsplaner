@@ -84,6 +84,7 @@
             this.Controls.Add(this.lblBeschreibung);
             this.Controls.Add(this.pctBoxUebung);
             this.Controls.Add(this.lblTitel);
+            this.MaximizeBox = false;
             this.Name = "FrmUebungsDetails";
             this.Text = "Uebungs Details";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmUebungsDetails_FormClosed);

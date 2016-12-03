@@ -134,6 +134,7 @@
             this.Controls.Add(this.lstTraining);
             this.Controls.Add(this.cbxKategorie);
             this.Controls.Add(this.lstUebungen);
+            this.MaximizeBox = false;
             this.Name = "FrmTrainingErstellen";
             this.Text = "Training erstellen";
             this.Load += new System.EventHandler(this.FrmTrainingErstellen_Load);

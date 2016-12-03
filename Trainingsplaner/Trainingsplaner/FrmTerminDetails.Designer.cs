@@ -61,6 +61,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.listBox1);
+            this.MaximizeBox = false;
             this.Name = "FrmTerminDetails";
             this.Text = "Termine";
             this.Load += new System.EventHandler(this.FrmTerminDetails_Load);

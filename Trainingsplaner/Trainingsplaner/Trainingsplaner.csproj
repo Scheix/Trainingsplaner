@@ -324,10 +324,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Pictures\pirelli.png" />
-    <Content Include="Pictures\trainings_bearb_fertig.png" />
+    <Content Include="Pictures\trainings_bearb.png" />
     <Content Include="Pictures\training_erstellen_fertig.png" />
-    <Content Include="Pictures\übungen_übersicht_fertig.png" />
+    <Content Include="Pictures\uebungen_uebersicht_fertig.png" />
     <Content Include="Pictures\übung_erstellen_fertig.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

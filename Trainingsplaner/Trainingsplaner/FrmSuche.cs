@@ -129,7 +129,7 @@ namespace Trainingsplaner
         {
             if (menuRef.GetType() == typeof(Form1))
             {
-                ((Form1)menuRef).OpenUebersicht = true;
+                ((Form1)menuRef).OpenSuchen = true;
             }
         }
     }

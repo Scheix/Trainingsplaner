@@ -51,6 +51,7 @@ namespace Trainingsplaner
             cboxEinteilung.Items.Add("Ausdauer");
             cboxEinteilung.Items.Add("Kraft");
             cboxEinteilung.Items.Add("Locker");
+            cboxEinteilung.SelectedItem = cboxEinteilung.Items[1];
             string select = "select distinct kategorie from uebungen";
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
             command.ExecuteNonQuery();
@@ -107,6 +108,14 @@ namespace Trainingsplaner
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
+                if (txtName.Text.Equals(""))
+                {
+                    MessageBox.Show("Bitte geben Sie einen Namen für das Training ein!", "Warnung",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    reader.Close();
+                    trainingsDB.Close();
+                    return;
+                }
                 if (reader["name"].ToString().Equals(txtName.Text))
                 {
                     MessageBox.Show("Dieser Name existieirt bereits, bitte geben Sie einen neuen Namen ein", "Warnung",

@@ -104,35 +104,35 @@ namespace Trainingsplaner
                 command.ExecuteNonQuery();
                 command = new SQLiteCommand(create4, trainingsDB);
                 command.ExecuteNonQuery();
-                string insert2 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Burpees','" + path + "\\pirelli.png')";
-                string insert3 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Climbers','" + path + "\\pirelli.png')";
-                string insert4 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Jumping Jacks','" + path + "\\pirelli.png')";
-                string insert5 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Jumps', '" + path + "\\pirelli.png')";
-                string insert6 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Lunge Walk','" + path + "\\pirelli.png')";
-                string insert7 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Pushups','" + path + "\\pirelli.png')";
-                string insert8 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Situps','" + path + "\\pirelli.png')";
-                string insert9 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Squats','" + path + "\\pirelli.png')";
-                string insert10 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Straight Leg Lever','" + path + "\\pirelli.png')";
-                string insert11 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Pistols','" + path + "\\pirelli.png')";
-                string insert12 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Standup Jumps','" + path + "\\pirelli.png')";
-                string insert13 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Pikes','" + path + "\\pirelli.png')";
-                string insert14 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Jackknifes','" + path + "\\pirelli.png')";
-                string insert15 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','40m Sprint','" + path + "\\pirelli.png')";
-                string insert16 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','100m Sprint','" + path + "\\pirelli.png')";
-                string insert17 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','200m Sprint', '" + path + "\\pirelli.png')";
-                string insert18 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','400m Sprint','" + path + "\\pirelli.png')";
-                string insert19 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','800m Sprint','" + path + "\\pirelli.png')";
-                string insert20 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','1.5km Run','" + path + "\\pirelli.png')";
-                string insert21 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','5km Run', '" + path + "\\pirelli.png')";
-                string insert22 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','8km Run','" + path + "\\pirelli.png')";
-                string insert23 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','10km Run','" + path + "\\pirelli.png')";
-                string insert24 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','10s Pause','" + path + "\\pirelli.png')";
-                string insert25 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','20s Pause','" + path + "\\pirelli.png')";
-                string insert26 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','30s Pause','" + path + "\\pirelli.png')";
-                string insert27 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','1min Pause','" + path + "\\pirelli.png')";
-                string insert28 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','2min Pause','" + path + "\\pirelli.png')";
-                string insert29 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','5min Pause','" + path + "\\pirelli.png')";
-                string insert30 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','10min Pause','" + path + "\\pirelli.png')";
+                string insert2 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Burpees','" + path + "\\training.png')";
+                string insert3 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Climbers','" + path + "\\training.png')";
+                string insert4 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Jumping Jacks','" + path + "\\training.png')";
+                string insert5 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Jumps', '" + path + "\\training.png')";
+                string insert6 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Lunge Walk','" + path + "\\training.png')";
+                string insert7 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Pushups','" + path + "\\training.png')";
+                string insert8 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Situps','" + path + "\\training.png')";
+                string insert9 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Squats','" + path + "\\training.png')";
+                string insert10 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Straight Leg Lever','" + path + "\\training.png')";
+                string insert11 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Pistols','" + path + "\\training.png')";
+                string insert12 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Standup Jumps','" + path + "\\training.png')";
+                string insert13 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Pikes','" + path + "\\training.png')";
+                string insert14 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('HIIT','Kommt später','Jackknifes','" + path + "\\training.png')";
+                string insert15 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','40m Sprint','" + path + "\\training.png')";
+                string insert16 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','100m Sprint','" + path + "\\training.png')";
+                string insert17 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','200m Sprint', '" + path + "\\training.png')";
+                string insert18 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','400m Sprint','" + path + "\\training.png')";
+                string insert19 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','800m Sprint','" + path + "\\training.png')";
+                string insert20 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','1.5km Run','" + path + "\\training.png')";
+                string insert21 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','5km Run', '" + path + "\\training.png')";
+                string insert22 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','8km Run','" + path + "\\training.png')";
+                string insert23 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Laufen','Kommt später','10km Run','" + path + "\\training.png')";
+                string insert24 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','10s Pause','" + path + "\\training.png')";
+                string insert25 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','20s Pause','" + path + "\\training.png')";
+                string insert26 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','30s Pause','" + path + "\\training.png')";
+                string insert27 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','1min Pause','" + path + "\\training.png')";
+                string insert28 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','2min Pause','" + path + "\\training.png')";
+                string insert29 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','5min Pause','" + path + "\\training.png')";
+                string insert30 = "insert into uebungen (kategorie, beschreibung, name, bild) values ('Pause','Pause machen','10min Pause','" + path + "\\training.png')";
 
                 command = new SQLiteCommand(insert2, trainingsDB);
                 command.ExecuteNonQuery();
@@ -196,28 +196,27 @@ namespace Trainingsplaner
             }
         }
 
-        private void btnSuchen_Click(object sender, EventArgs e)
+        private void organisationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmArbeitsplan frm = new FrmArbeitsplan();
+            frm.Show();
+        }
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (OpenKalender == true)
+            {
+                FrmTerminKalender frm = new FrmTerminKalender(this);
+                frm.Show();
+            }
+        }
+
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
         {
             if (OpenSuchen == true)
             {
                 FrmSuche frm = new FrmSuche(this);
                 frm.Show();
             }
-        }
-
-        private void organisationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmArbeitsplan frm = new FrmArbeitsplan();
-            frm.Show();
-        }
-
-        private void kalenderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (OpenKalender == true)
-            {
-                FrmTerminKalender frm = new FrmTerminKalender(this);
-                frm.Show();
-            } 
         }
     }
 }

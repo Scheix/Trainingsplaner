@@ -92,6 +92,7 @@
             this.Controls.Add(this.btnTechnik);
             this.Controls.Add(this.btnLaufen);
             this.Controls.Add(this.btnHIIT);
+            this.MinimizeBox = false;
             this.Name = "FrmNeueUebung";
             this.Text = "Neue Uebung";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmNeueUebung_FormClosed);

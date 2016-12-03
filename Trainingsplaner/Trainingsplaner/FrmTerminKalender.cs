@@ -130,7 +130,7 @@ namespace Trainingsplaner
                     trainingsDB.Open();
                     DateItem d = new DateItem();
                     d.Date = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
-                    d.BackColor1 = Color.Aqua;
+                    d.BackColor1 = Color.ForestGreen;
                     d.Text = value;
                     monthCalendar1.AddDateInfo(d);
                     string insert = "insert into termine (name, date) values ('" + value + "','" + date + "')";
@@ -211,71 +211,31 @@ namespace Trainingsplaner
                 ((Form1)menuRef).OpenUebersicht = true;
             }
         }
-        //public static DialogResult InfoBox(List<string> date ,List<string> values)
-        //{
-        //    Form form = new Form();
-        //    Button buttonOk = new Button();
-        //    int counter = 20;
 
-        //    form.Text = "Termine";
-        //    for (int i = 0; i < date.Count; i++)
-        //    { 
-        //        Label termin = new Label();
-        //        termin.Text = "Termine am " + date[i] + ":";
-        //        termin.SetBounds(9, counter, 372, 13);
-        //        termin.AutoSize = true;
-        //        form.Controls.AddRange(new Control[] { termin });
-        //        for (int j = 0; j < values.Count; j++)
-        //        {
-        //            Label l = new Label();
-        //            l.Text = values[j];
-        //            l.SetBounds(9, counter + 20, 372, 13);
-        //            counter = counter * 2;
-        //            l.AutoSize = true;
-        //            form.Controls.AddRange(new Control[] { l });
-        //        }
-        //    }
-
-        //    buttonOk.Text = "OK";
-        //    buttonOk.DialogResult = DialogResult.OK;
-        //    //x,y,b,h
-        //    buttonOk.SetBounds(228, 72, 75, 23);
-
-        //    buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-
-        //    form.ClientSize = new Size(446, 157); //new Size(396, 107);
-        //    form.Controls.AddRange(new Control[] { buttonOk });
-        //    //form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
-        //    form.FormBorderStyle = FormBorderStyle.FixedDialog;
-        //    form.StartPosition = FormStartPosition.CenterScreen;
-        //    form.MinimizeBox = false;
-        //    form.MaximizeBox = false;
-        //    form.AcceptButton = buttonOk;
-
-        //    DialogResult dialogResult = form.ShowDialog();
-        //    return dialogResult;
-        //}
-
-        //private void monthCalendar1_DayClick(object sender, DayClickEventArgs e)
-        //{
-        //    // Auch noch überprüfen ob an diesem Tag, mehr als 1 Termin ansteht
-        //    string date = "" + e.Date;
-        //    List<string> name = new List<string>();
-        //    trainingsDB.Open();
-        //    string select = "select name from termine where date = '"+date+"'";
-        //    SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
-        //    command.ExecuteNonQuery();
-        //    SQLiteDataReader reader = command.ExecuteReader();
-        //    while (reader.Read())
-        //    {
-        //        name.Add(""+reader["name"]);
-        //    }
-        //    trainingsDB.Close();
-        //    if (name.Count != 0)
-        //    {
-        //        //MessageBox.Show(name, "Termin", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        InfoBox(date, name);
-        //    }           
-        //}
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string day = (monthCalendar1.SelectedDates[0].Day < 10) ? "0" + monthCalendar1.SelectedDates[0].Day : "" + monthCalendar1.SelectedDates[0].Day;
+            string month = (monthCalendar1.SelectedDates[0].Month < 10) ? "0" + monthCalendar1.SelectedDates[0].Month : "" + monthCalendar1.SelectedDates[0].Month;
+            string year = "" + monthCalendar1.SelectedDates[0].Year;
+            string date = day + "." + month + "." + year;
+            if (MessageBox.Show("Möchten sie einen Termin erstellen?", "Termin",
+         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string value = "Terminname";
+                if (InputBox("Termin erstellen", "Bitte bennen Sie Ihren Termin:", ref value) == DialogResult.OK)
+                {
+                    trainingsDB.Open();
+                    DateItem d = new DateItem();
+                    d.Date = new DateTime(Convert.ToInt32(year), Convert.ToInt32(month), Convert.ToInt32(day));
+                    d.BackColor1 = Color.ForestGreen;
+                    d.Text = value;
+                    monthCalendar1.AddDateInfo(d);
+                    string insert = "insert into termine (name, date) values ('" + value + "','" + date + "')";
+                    SQLiteCommand command = new SQLiteCommand(insert, trainingsDB);
+                    command.ExecuteNonQuery();
+                    trainingsDB.Close();
+                }
+            }
+        }
     }
 }

@@ -118,7 +118,13 @@ namespace Trainingsplaner
 
         private void btnFertig_Click(object sender, EventArgs e)
         {
-            trainingsDB.Open();
+            if (txtName.Text.Equals(""))
+            {
+                MessageBox.Show("Bitte geben Sie einen Namen für den Zirkel ein!", "Warnung",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            trainingsDB.Open();  
             string name = txtName.Text;
             string listOfExercises = "";
             for (int i = 0; i < list.Count; i++)

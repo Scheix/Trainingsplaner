@@ -112,6 +112,7 @@
             this.Controls.Add(this.lstZirkel);
             this.Controls.Add(this.cbxKategorie);
             this.Controls.Add(this.lstUebungen);
+            this.MaximizeBox = false;
             this.Name = "FrmZirkelErstellen";
             this.Text = "FrmZirkelErstellen";
             this.Load += new System.EventHandler(this.FrmZirkelErstellen_Load);

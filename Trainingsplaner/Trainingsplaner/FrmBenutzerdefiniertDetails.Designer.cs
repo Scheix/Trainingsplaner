@@ -90,14 +90,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.ForestGreen;
             this.ClientSize = new System.Drawing.Size(627, 607);
             this.Controls.Add(this.btnLöschen);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.lblBeschreibung);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblName);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.MaximizeBox = false;
             this.Name = "FrmBenutzerdefiniertDetails";
-            this.Text = "FrmBenutzerdefiniertDetails";
+            this.Text = "Benutzerdefinierte Uebung, Details";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmBenutzerdefiniertDetails_FormClosed);
             this.Load += new System.EventHandler(this.FrmBenutzerdefiniertDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

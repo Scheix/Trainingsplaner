@@ -74,6 +74,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lstDetails);
+            this.MaximizeBox = false;
             this.Name = "FrmTrainingsDetails";
             this.Text = "Trainings Details";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmTrainingsDetails_FormClosed);
