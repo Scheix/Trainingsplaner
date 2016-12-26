@@ -52,7 +52,7 @@ namespace Trainingsplaner
             else
             {
                 string path = ConfigurationManager.AppSettings["BasePath"];
-                string insert = "insert into uebungen (kategorie, beschreibung, name, bild) values ('" + Kategorie + "','" + beschreibung + "','" + name + "','" + path+ "//training.png')";
+                string insert = "insert into uebungen (kategorie, beschreibung, name, bild) values ('" + Kategorie + "','" + beschreibung + "','" + name + "','" + path+ "\\Uebungen\\training.png')";
                 SQLiteCommand command = new SQLiteCommand(insert, trainingsDB);
                 command.ExecuteNonQuery();
                 trainingsDB.Close();
@@ -75,7 +75,7 @@ namespace Trainingsplaner
             {
                 string source = fd.FileName;
                 string filename = System.IO.Path.GetFileName(source);
-                destination = path + "\\" + filename;
+                destination = path + "\\Uebungen\\" + filename;
                 //System.IO.File.Copy(source, destination, true);
                 //pictureBox1.Image = Image.FromFile(destination);
                 //pictureBox1.Image = ResizeImage(250,Image.FromFile(destination));

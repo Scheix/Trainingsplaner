@@ -51,6 +51,7 @@
             this.cbxKategorie.Size = new System.Drawing.Size(250, 21);
             this.cbxKategorie.TabIndex = 7;
             this.cbxKategorie.Text = "Grund";
+            this.cbxKategorie.SelectedIndexChanged += new System.EventHandler(this.cbxKategorie_SelectedIndexChanged);
             // 
             // lstZeichenBehaelter
             // 

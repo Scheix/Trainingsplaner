@@ -15,6 +15,9 @@ using System.Windows.Forms;
 
 namespace Trainingsplaner
 {
+    //Fragen wegen besserer Lösung bezüglich dem Rausfinden ob das zu verschiebende Bild ein Spielfeld ist
+    //Fragen wegen genauerer Erklärung des Codes
+    //Fragen wiso am Anfang so viele Spielfeldbilder da sind
   public partial class FrmBenutzerdefinierteUebung : Form
   {
     #region otherStuff top
@@ -33,6 +36,11 @@ namespace Trainingsplaner
 
     private void FrmBenutzerdefinierteUebung_Load(object sender, EventArgs e)
     {
+      cbxKategorie.Items.Add("Spielfeld");
+      cbxKategorie.Items.Add("Spieler");
+      cbxKategorie.Items.Add("Pfeile");
+      cbxKategorie.Items.Add("Ball");
+      cbxKategorie.SelectedItem = cbxKategorie.Items[0];    
       KeyPreview = true;
       addImagesToListView();
       typeof(Panel).InvokeMember("DoubleBuffered",
@@ -130,8 +138,6 @@ namespace Trainingsplaner
       activeImage.Left = transformedPoint.X;
       panel1.Invalidate();
     }
-
-    #region otherStuff
     private void panel1_Paint(object sender, PaintEventArgs e)
     {
       var g = e.Graphics;
@@ -151,12 +157,27 @@ namespace Trainingsplaner
     private void addImagesToListView()
     {
       string path = ConfigurationManager.AppSettings["BasePath"];
-      DirectoryInfo dir = new DirectoryInfo(@"" + path);
-
+      DirectoryInfo dir = new DirectoryInfo(@"" + path); ;
+      if (cbxKategorie.SelectedItem.ToString().Equals("Spielfeld"))
+      {
+          dir = new DirectoryInfo(@"" + path+"\\Spielfeld");
+      }
+      else if (cbxKategorie.SelectedItem.ToString().Equals("Spieler"))
+      {
+           dir = new DirectoryInfo(@"" + path + "\\Spieler");
+      }
+      else if (cbxKategorie.SelectedItem.ToString().Equals("Pfeile"))
+      {
+           dir = new DirectoryInfo(@"" + path + "\\Pfeile");
+      }
+      else
+      {
+           dir = new DirectoryInfo(@"" + path + "\\Ball");
+      }
       foreach (FileInfo file in dir.GetFiles())
       {
         try
-        {
+        { 
           this.imageList1.Images.Add(Image.FromFile(file.FullName));
         }
         catch
@@ -204,7 +225,7 @@ namespace Trainingsplaner
         Bitmap bm = new Bitmap(panel1.Size.Width, panel1.Size.Height);
         panel1.DrawToBitmap(bm, new Rectangle(0, 0, panel1.Size.Width, panel1.Size.Height));
 
-        string path = ConfigurationManager.AppSettings["BasePath"];
+        string path = ConfigurationManager.AppSettings["BasePath"]+"\\Uebungen";
         string destination = "";
         string description = rtbBeschreibung.Text;
         if (description.Equals(""))
@@ -258,42 +279,11 @@ namespace Trainingsplaner
         ((FrmNeueUebung)neueUebungRef).Open = true;
       }
     }
-
-
-
-
-
-
-    //public Image CapturePanel(Control ctrl)
-    //{
-    //    Graphics g = this.CreateGraphics();
-
-    //    // Ein neues Image mit der grösse des jeweiligen Controls anlegen
-    //    Image newImage = new Bitmap(ctrl.Size.Width, ctrl.Size.Height, g);
-
-    //    Graphics memoryGraphics = Graphics.FromImage(newImage);
-    //    //Handle holen
-    //    IntPtr src = g.GetHdc();
-    //    IntPtr dest = memoryGraphics.GetHdc();
-
-    //    // das Handle des Ziels
-    //    // die X Position an der das Bild eingefügt werden soll
-    //    // die Y Position an der das Bild eingefügt werden soll
-    //    // die breite des Bildes
-    //    // die höhe des Bildes
-    //    // das Handle der Quelle
-    //    // die X Position an der das Control liegt
-    //    // die Y Position an der das Control liegt
-    //    // Raster Operation Code an dieser Stelle ist es SRCCOPY
-    //    // Natürlich muß der auf der Seite angegebene Hex wert noch in ein int umgerechnet werden
-    //    // mehr informationen auf http://msdn.microsoft.com/library/default.asp?url=/library/en-us/wceui40/html/_celrfternaryrasteroperations.asp
-    //    BitBlt(dest, 0, 0, ctrl.ClientRectangle.Width, ctrl.ClientRectangle.Height, src, ctrl.Location.X, ctrl.Location.Y, 13369376);
-
-    //    // Handles wieder Freigeben
-    //    g.ReleaseHdc(dest);
-    //    memoryGraphics.ReleaseHdc(src);
-    //    return newImage;
-    //}
-    #endregion
-  }
+        private void cbxKategorie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstZeichenBehaelter.Items.Clear();
+            this.imageList1.Images.Clear();
+            addImagesToListView();
+        }
+    }
 }

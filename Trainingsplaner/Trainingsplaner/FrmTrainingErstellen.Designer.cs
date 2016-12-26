@@ -88,7 +88,7 @@
             this.cbxKategorie.Name = "cbxKategorie";
             this.cbxKategorie.Size = new System.Drawing.Size(182, 21);
             this.cbxKategorie.TabIndex = 11;
-            this.cbxKategorie.Text = "HIIT";
+            this.cbxKategorie.Text = "Benutzerdefiniert";
             this.cbxKategorie.SelectedIndexChanged += new System.EventHandler(this.cbxKategorie_SelectedIndexChanged);
             // 
             // lstUebungen

@@ -34,7 +34,7 @@ namespace Trainingsplaner
             while (reader.Read())
             {
                 lblTitel.Text = ""+reader["name"];
-                lblBeschreibung.Text = "" + reader["beschreibung"];
+                richTextBox1.Text = "" + reader["beschreibung"];
                 pctBoxUebung.Image = Image.FromFile("" + reader["bild"]);
             }
             trainingsDB.Close();

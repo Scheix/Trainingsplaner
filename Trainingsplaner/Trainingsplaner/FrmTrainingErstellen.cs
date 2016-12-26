@@ -52,19 +52,14 @@ namespace Trainingsplaner
             cboxEinteilung.Items.Add("Kraft");
             cboxEinteilung.Items.Add("Locker");
             cboxEinteilung.SelectedItem = cboxEinteilung.Items[1];
-            string select = "select distinct kategorie from uebungen";
-            SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
-            command.ExecuteNonQuery();
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                cbxKategorie.Items.Add("" + reader["kategorie"]);
-            }
+           
             cbxKategorie.Items.Add("Zirkel");
+            cbxKategorie.Items.Add("Benutzerdefiniert");
+            cbxKategorie.Items.Add("Laufen");
+            cbxKategorie.Items.Add("Pause");
             string selectUebungen = "select name from uebungen where kategorie = '" + cbxKategorie.Text + "'";
-            command = new SQLiteCommand(selectUebungen, trainingsDB);
-            command.ExecuteNonQuery();
-            reader = command.ExecuteReader();
+            SQLiteCommand command = new SQLiteCommand(selectUebungen, trainingsDB);
+            SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 lstUebungen.Items.Add("" + reader["name"]);

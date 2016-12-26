@@ -32,20 +32,17 @@ namespace Trainingsplaner
         {
             string select = "select * from uebungen where name = '" + this.UebungsName + "'";
             string path = ConfigurationManager.AppSettings["BasePath"];
-            string destination = path+"\\displayImage.jpg";
             trainingsDB.Open();
             SQLiteCommand command = new SQLiteCommand(select, trainingsDB);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 lblName.Text = "" + reader["name"];
-                lblBeschreibung.Text = "" + reader["beschreibung"];
-                File.Copy("" + reader["bild"], destination, true);
-                //Display Image machen, Bild kopieren und im Ordner unter den Namen displayImage speichern, dieses Bild anzeigen und dann originales löschen
-                //displayImage wird immer am anfang überschrieben, also mit dem Bild das ich anzeigen will --> wird nicht gelöscht!
-                pictureBox1.Image = ResizeImage(450, Image.FromFile(destination));
+                richTextBox1.Text = "" + reader["beschreibung"];        
+                pictureBox1.Image = ResizeImage(450, Image.FromFile("" + reader["bild"]));
                 bildPfad = ""+reader["bild"];
             }
+            reader.Close();
             trainingsDB.Close();
         }
 
@@ -58,16 +55,6 @@ namespace Trainingsplaner
                 SQLiteCommand command = new SQLiteCommand(delete, trainingsDB);
                 command.ExecuteNonQuery();
                 trainingsDB.Close();
-                try
-                {
-                    System.IO.File.Delete(@""+bildPfad);
-                }
-                catch (System.IO.IOException exc)
-                {
-                    Console.WriteLine(exc.Message);
-                    MessageBox.Show("Ein Fehler ist aufgetreten!\n"+exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
                 if (uebersichtRef.GetType() == typeof(FrmUebersicht))
                 {
                     ((FrmUebersicht)uebersichtRef).ReloadList();
